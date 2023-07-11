@@ -40,8 +40,8 @@ jobs:
           path: dist
           key: dist-${{ github.run_id }}
       - run: |
-          npx nx build @iqualify/ngx-bootstrap --runner cloud --configuration production
-          npx ng build --runner cloud --configuration production
+          npx nx build @iqualify/ngx-bootstrap --runner=cloud --configuration=production
+          npx ng build --runner=cloud --configuration=production
 
   # publish to npm
   npm_publish:
