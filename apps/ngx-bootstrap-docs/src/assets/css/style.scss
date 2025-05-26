@@ -1,5 +1,7 @@
-@import "sidebar";
-@import "bs-datepicker";
+@use "variables" as *;
+@use "sidebar";
+@use "bs-datepicker";
+@use "adaptive";
 
 /* HEADER */
 .bs-datepicker-head {
@@ -1000,5 +1002,4 @@ footer {
 }
 
 /*Imported adaptive styles*/
-@import "adaptive";
 
