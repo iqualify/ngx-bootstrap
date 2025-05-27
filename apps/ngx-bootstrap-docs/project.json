@@ -198,6 +198,22 @@
         }
       },
       "defaultConfiguration": "production"
+    },
+    "fix-404": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node scripts/fix-404.js"
+      }
+    },
+    "build-with-404-fix": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "nx build ngx-bootstrap-docs --configuration=production-cf",
+          "nx run ngx-bootstrap-docs:fix-404"
+        ],
+        "parallel": false
+      }
     }
   }
 }
