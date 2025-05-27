@@ -49,9 +49,7 @@
     "dev:ssr": "ng run ngx-bootstrap-docs:serve-ssr",
     "serve:ssr": "node dist/ngx-bootstrap-docs/server/main.js",
     "build:ssr": "ng build && ng run ngx-bootstrap-docs:server",
-    "prerender": "ng run ngx-bootstrap-docs:prerender",
-    "build:cf": "nx run ngx-bootstrap-docs:build-with-404-fix",
-    "fix-404": "node scripts/fix-404.js"
+    "prerender": "ng run ngx-bootstrap-docs:prerender"
   },
   "private": true,
   "keywords": [
