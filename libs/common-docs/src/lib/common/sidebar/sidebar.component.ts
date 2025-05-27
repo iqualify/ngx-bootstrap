@@ -50,7 +50,7 @@ export class SidebarComponent {
     public styleManager: StyleManager,
     @Inject(DOCS_TOKENS) _routes: Routes,
     @Inject(SIDEBAR_ROUTES) sidebarRoutesStructure: SidebarRoutesType,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: object
   ) {
     if (isPlatformBrowser(this.platformId) && innerWidth <= 991) {
       this.menuIsOpened = false;

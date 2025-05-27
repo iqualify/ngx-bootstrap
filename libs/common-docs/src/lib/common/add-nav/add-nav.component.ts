@@ -39,7 +39,7 @@ export class AddNavComponent implements OnChanges, AfterViewChecked, AfterViewIn
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(PLATFORM_ID) private platformId: object,
     private _renderer: Renderer2,
     private router: Router,
   ){}

@@ -19,7 +19,7 @@ export class AppComponent implements AfterContentInit {
     private urlSerializer: UrlSerializer,
     private analytics: Analytics,
     @Inject(DOCUMENT) private document: any,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: object
   ) {}
 
   // almost same logic exists in top-menu component
