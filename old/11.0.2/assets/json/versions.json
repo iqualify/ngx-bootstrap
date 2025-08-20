@@ -24,11 +24,25 @@
     "url": "ngx-bootstrap/old/12.0.0",
     "unprefixedUrl": "old/12.0.0"
   },
-
+  {
+    "version": "18.1.3",
+    "url": "ngx-bootstrap/old/18.1.3",
+    "unprefixedUrl": "old/18.1.3"
+  },
+  {
+    "version": "19.0.2",
+    "url": "ngx-bootstrap/old/19.0.2",
+    "unprefixedUrl": "old/19.0.2"
+  },
   {
     "version": "2.0.5",
     "url": "ngx-bootstrap/old/2.0.5",
     "unprefixedUrl": "old/2.0.5"
+  },
+  {
+    "version": "20.0.0",
+    "url": "ngx-bootstrap/old/20.0.0",
+    "unprefixedUrl": "old/20.0.0"
   },
   {
     "version": "3.3.0",
