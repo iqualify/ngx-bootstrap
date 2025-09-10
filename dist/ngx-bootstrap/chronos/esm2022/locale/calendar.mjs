@@ -1,0 +1,9 @@
+export const defaultCalendar = {
+    sameDay: '[Today at] LT',
+    nextDay: '[Tomorrow at] LT',
+    nextWeek: 'dddd [at] LT',
+    lastDay: '[Yesterday at] LT',
+    lastWeek: '[Last] dddd [at] LT',
+    sameElse: 'L'
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY2FsZW5kYXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi9zcmMvY2hyb25vcy9sb2NhbGUvY2FsZW5kYXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsTUFBTSxDQUFDLE1BQU0sZUFBZSxHQUFHO0lBQzdCLE9BQU8sRUFBRSxlQUFlO0lBQ3hCLE9BQU8sRUFBRSxrQkFBa0I7SUFDM0IsUUFBUSxFQUFFLGNBQWM7SUFDeEIsT0FBTyxFQUFFLG1CQUFtQjtJQUM1QixRQUFRLEVBQUUscUJBQXFCO0lBQy9CLFFBQVEsRUFBRSxHQUFHO0NBQ2QsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBjb25zdCBkZWZhdWx0Q2FsZW5kYXIgPSB7XHJcbiAgc2FtZURheTogJ1tUb2RheSBhdF0gTFQnLFxyXG4gIG5leHREYXk6ICdbVG9tb3Jyb3cgYXRdIExUJyxcclxuICBuZXh0V2VlazogJ2RkZGQgW2F0XSBMVCcsXHJcbiAgbGFzdERheTogJ1tZZXN0ZXJkYXkgYXRdIExUJyxcclxuICBsYXN0V2VlazogJ1tMYXN0XSBkZGRkIFthdF0gTFQnLFxyXG4gIHNhbWVFbHNlOiAnTCdcclxufTtcclxuIl19

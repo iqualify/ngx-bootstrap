@@ -1,0 +1,52 @@
+import { getDayOfWeek } from '../units/day-of-week';
+//! moment.js locale configuration
+//! locale : Portuguese (Brazil) [pt-br]
+//! author : Caio Ribeiro Pereira : https://github.com/caio-ribeiro-pereira
+export const ptBrLocale = {
+    abbr: 'pt-br',
+    months: 'Janeiro_Fevereiro_Março_Abril_Maio_Junho_Julho_Agosto_Setembro_Outubro_Novembro_Dezembro'.split('_'),
+    monthsShort: 'Jan_Fev_Mar_Abr_Mai_Jun_Jul_Ago_Set_Out_Nov_Dez'.split('_'),
+    weekdays: 'Domingo_Segunda-feira_Terça-feira_Quarta-feira_Quinta-feira_Sexta-feira_Sábado'.split('_'),
+    weekdaysShort: 'Dom_Seg_Ter_Qua_Qui_Sex_Sáb'.split('_'),
+    weekdaysMin: 'Do_2ª_3ª_4ª_5ª_6ª_Sá'.split('_'),
+    weekdaysParseExact: true,
+    longDateFormat: {
+        LT: 'HH:mm',
+        LTS: 'HH:mm:ss',
+        L: 'DD/MM/YYYY',
+        LL: 'D [de] MMMM [de] YYYY',
+        LLL: 'D [de] MMMM [de] YYYY [às] HH:mm',
+        LLLL: 'dddd, D [de] MMMM [de] YYYY [às] HH:mm'
+    },
+    calendar: {
+        sameDay: '[Hoje às] LT',
+        nextDay: '[Amanhã às] LT',
+        nextWeek: 'dddd [às] LT',
+        lastDay: '[Ontem às] LT',
+        lastWeek(date) {
+            return (getDayOfWeek(date) === 0 || getDayOfWeek(date) === 6) ?
+                '[Último] dddd [às] LT' : // Saturday + Sunday
+                '[Última] dddd [às] LT'; // Monday - Friday
+        },
+        sameElse: 'L'
+    },
+    relativeTime: {
+        future: 'em %s',
+        past: '%s atrás',
+        s: 'poucos segundos',
+        ss: '%d segundos',
+        m: 'um minuto',
+        mm: '%d minutos',
+        h: 'uma hora',
+        hh: '%d horas',
+        d: 'um dia',
+        dd: '%d dias',
+        M: 'um mês',
+        MM: '%d meses',
+        y: 'um ano',
+        yy: '%d anos'
+    },
+    dayOfMonthOrdinalParse: /\d{1,2}º/,
+    ordinal: '%dº'
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHQtYnIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi9zcmMvY2hyb25vcy9pMThuL3B0LWJyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNBLE9BQU8sRUFBRSxZQUFZLEVBQUUsTUFBTSxzQkFBc0IsQ0FBQztBQUVwRCxrQ0FBa0M7QUFDbEMsd0NBQXdDO0FBQ3hDLDJFQUEyRTtBQUUzRSxNQUFNLENBQUMsTUFBTSxVQUFVLEdBQWU7SUFDcEMsSUFBSSxFQUFFLE9BQU87SUFDYixNQUFNLEVBQUUsMEZBQTBGLENBQUMsS0FBSyxDQUFDLEdBQUcsQ0FBQztJQUM3RyxXQUFXLEVBQUUsaURBQWlELENBQUMsS0FBSyxDQUFDLEdBQUcsQ0FBQztJQUN6RSxRQUFRLEVBQUUsZ0ZBQWdGLENBQUMsS0FBSyxDQUFDLEdBQUcsQ0FBQztJQUNyRyxhQUFhLEVBQUUsNkJBQTZCLENBQUMsS0FBSyxDQUFDLEdBQUcsQ0FBQztJQUN2RCxXQUFXLEVBQUUsc0JBQXNCLENBQUMsS0FBSyxDQUFDLEdBQUcsQ0FBQztJQUM5QyxrQkFBa0IsRUFBRSxJQUFJO0lBQ3hCLGNBQWMsRUFBRTtRQUNkLEVBQUUsRUFBRSxPQUFPO1FBQ1gsR0FBRyxFQUFFLFVBQVU7UUFDZixDQUFDLEVBQUUsWUFBWTtRQUNmLEVBQUUsRUFBRSx1QkFBdUI7UUFDM0IsR0FBRyxFQUFFLGtDQUFrQztRQUN2QyxJQUFJLEVBQUUsd0NBQXdDO0tBQy9DO0lBQ0QsUUFBUSxFQUFFO1FBQ1IsT0FBTyxFQUFFLGNBQWM7UUFDdkIsT0FBTyxFQUFFLGdCQUFnQjtRQUN6QixRQUFRLEVBQUUsY0FBYztRQUN4QixPQUFPLEVBQUUsZUFBZTtRQUN4QixRQUFRLENBQUMsSUFBVTtZQUNqQixPQUFPLENBQUMsWUFBWSxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsSUFBSSxZQUFZLENBQUMsSUFBSSxDQUFDLEtBQUssQ0FBQyxDQUFDLENBQUMsQ0FBQztnQkFDN0QsdUJBQXVCLENBQUMsQ0FBQyxDQUFDLG9CQUFvQjtnQkFDOUMsdUJBQXVCLENBQUMsQ0FBQyxrQkFBa0I7UUFDL0MsQ0FBQztRQUNELFFBQVEsRUFBRSxHQUFHO0tBQ2Q7SUFDRCxZQUFZLEVBQUU7UUFDWixNQUFNLEVBQUUsT0FBTztRQUNmLElBQUksRUFBRSxVQUFVO1FBQ2hCLENBQUMsRUFBRSxpQkFBaUI7UUFDcEIsRUFBRSxFQUFFLGFBQWE7UUFDakIsQ0FBQyxFQUFFLFdBQVc7UUFDZCxFQUFFLEVBQUUsWUFBWTtRQUNoQixDQUFDLEVBQUUsVUFBVTtRQUNiLEVBQUUsRUFBRSxVQUFVO1FBQ2QsQ0FBQyxFQUFFLFFBQVE7UUFDWCxFQUFFLEVBQUUsU0FBUztRQUNiLENBQUMsRUFBRSxRQUFRO1FBQ1gsRUFBRSxFQUFFLFVBQVU7UUFDZCxDQUFDLEVBQUUsUUFBUTtRQUNYLEVBQUUsRUFBRSxTQUFTO0tBQ2Q7SUFDRCxzQkFBc0IsRUFBRSxVQUFVO0lBQ2xDLE9BQU8sRUFBRSxLQUFLO0NBQ2YsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IExvY2FsZURhdGEgfSBmcm9tICcuLi9sb2NhbGUvbG9jYWxlLmNsYXNzJztcclxuaW1wb3J0IHsgZ2V0RGF5T2ZXZWVrIH0gZnJvbSAnLi4vdW5pdHMvZGF5LW9mLXdlZWsnO1xyXG5cclxuLy8hIG1vbWVudC5qcyBsb2NhbGUgY29uZmlndXJhdGlvblxyXG4vLyEgbG9jYWxlIDogUG9ydHVndWVzZSAoQnJhemlsKSBbcHQtYnJdXHJcbi8vISBhdXRob3IgOiBDYWlvIFJpYmVpcm8gUGVyZWlyYSA6IGh0dHBzOi8vZ2l0aHViLmNvbS9jYWlvLXJpYmVpcm8tcGVyZWlyYVxyXG5cclxuZXhwb3J0IGNvbnN0IHB0QnJMb2NhbGU6IExvY2FsZURhdGEgPSB7XHJcbiAgYWJicjogJ3B0LWJyJyxcclxuICBtb250aHM6ICdKYW5laXJvX0ZldmVyZWlyb19NYXLDp29fQWJyaWxfTWFpb19KdW5ob19KdWxob19BZ29zdG9fU2V0ZW1icm9fT3V0dWJyb19Ob3ZlbWJyb19EZXplbWJybycuc3BsaXQoJ18nKSxcclxuICBtb250aHNTaG9ydDogJ0phbl9GZXZfTWFyX0Ficl9NYWlfSnVuX0p1bF9BZ29fU2V0X091dF9Ob3ZfRGV6Jy5zcGxpdCgnXycpLFxyXG4gIHdlZWtkYXlzOiAnRG9taW5nb19TZWd1bmRhLWZlaXJhX1RlcsOnYS1mZWlyYV9RdWFydGEtZmVpcmFfUXVpbnRhLWZlaXJhX1NleHRhLWZlaXJhX1PDoWJhZG8nLnNwbGl0KCdfJyksXHJcbiAgd2Vla2RheXNTaG9ydDogJ0RvbV9TZWdfVGVyX1F1YV9RdWlfU2V4X1PDoWInLnNwbGl0KCdfJyksXHJcbiAgd2Vla2RheXNNaW46ICdEb18ywqpfM8KqXzTCql81wqpfNsKqX1PDoScuc3BsaXQoJ18nKSxcclxuICB3ZWVrZGF5c1BhcnNlRXhhY3Q6IHRydWUsXHJcbiAgbG9uZ0RhdGVGb3JtYXQ6IHtcclxuICAgIExUOiAnSEg6bW0nLFxyXG4gICAgTFRTOiAnSEg6bW06c3MnLFxyXG4gICAgTDogJ0REL01NL1lZWVknLFxyXG4gICAgTEw6ICdEIFtkZV0gTU1NTSBbZGVdIFlZWVknLFxyXG4gICAgTExMOiAnRCBbZGVdIE1NTU0gW2RlXSBZWVlZIFvDoHNdIEhIOm1tJyxcclxuICAgIExMTEw6ICdkZGRkLCBEIFtkZV0gTU1NTSBbZGVdIFlZWVkgW8Ogc10gSEg6bW0nXHJcbiAgfSxcclxuICBjYWxlbmRhcjoge1xyXG4gICAgc2FtZURheTogJ1tIb2plIMOgc10gTFQnLFxyXG4gICAgbmV4dERheTogJ1tBbWFuaMOjIMOgc10gTFQnLFxyXG4gICAgbmV4dFdlZWs6ICdkZGRkIFvDoHNdIExUJyxcclxuICAgIGxhc3REYXk6ICdbT250ZW0gw6BzXSBMVCcsXHJcbiAgICBsYXN0V2VlayhkYXRlOiBEYXRlKSB7XHJcbiAgICAgIHJldHVybiAoZ2V0RGF5T2ZXZWVrKGRhdGUpID09PSAwIHx8IGdldERheU9mV2VlayhkYXRlKSA9PT0gNikgP1xyXG4gICAgICAgICdbw5psdGltb10gZGRkZCBbw6BzXSBMVCcgOiAvLyBTYXR1cmRheSArIFN1bmRheVxyXG4gICAgICAgICdbw5psdGltYV0gZGRkZCBbw6BzXSBMVCc7IC8vIE1vbmRheSAtIEZyaWRheVxyXG4gICAgfSxcclxuICAgIHNhbWVFbHNlOiAnTCdcclxuICB9LFxyXG4gIHJlbGF0aXZlVGltZToge1xyXG4gICAgZnV0dXJlOiAnZW0gJXMnLFxyXG4gICAgcGFzdDogJyVzIGF0csOhcycsXHJcbiAgICBzOiAncG91Y29zIHNlZ3VuZG9zJyxcclxuICAgIHNzOiAnJWQgc2VndW5kb3MnLFxyXG4gICAgbTogJ3VtIG1pbnV0bycsXHJcbiAgICBtbTogJyVkIG1pbnV0b3MnLFxyXG4gICAgaDogJ3VtYSBob3JhJyxcclxuICAgIGhoOiAnJWQgaG9yYXMnLFxyXG4gICAgZDogJ3VtIGRpYScsXHJcbiAgICBkZDogJyVkIGRpYXMnLFxyXG4gICAgTTogJ3VtIG3DqnMnLFxyXG4gICAgTU06ICclZCBtZXNlcycsXHJcbiAgICB5OiAndW0gYW5vJyxcclxuICAgIHl5OiAnJWQgYW5vcydcclxuICB9LFxyXG4gIGRheU9mTW9udGhPcmRpbmFsUGFyc2U6IC9cXGR7MSwyfcK6LyxcclxuICBvcmRpbmFsOiAnJWTCuidcclxufTtcclxuIl19
