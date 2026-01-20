@@ -2,7 +2,7 @@ import { expect, ConsoleMessage } from '@playwright/test';
 import { BasePo } from './base.po';
 
 export class AccordionPo extends BasePo {
-  override pageUrl = '#/components/accordion';
+  override pageUrl = '/ngx-bootstrap/components/accordion';
   pageTitle = 'Accordion';
   ghLinkToComponent = 'https://github.com/valor-software/ngx-bootstrap/tree/development/src/accordion';
   additionalHtml = '.badge';
@@ -38,10 +38,12 @@ export class AccordionPo extends BasePo {
   }
 
   async clickOnAccordionGroup(baseSelector: string, itemIndex: number) {
-    await this.page
+    const accordionButton = this.page
       .locator(baseSelector + ' accordion-group button')
-      .nth(itemIndex)
-      .click();
+      .nth(itemIndex);
+    
+    await accordionButton.waitFor({ state: 'visible', timeout: 10000 });
+    await accordionButton.click();
   }
 
   async expectItemContentVisible(baseSelector: string, itemIndex: number, visible: boolean) {

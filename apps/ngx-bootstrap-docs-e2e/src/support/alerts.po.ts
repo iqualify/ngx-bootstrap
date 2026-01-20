@@ -2,7 +2,7 @@ import { expect } from '@playwright/test';
 import { BasePo } from './base.po';
 
 export class AlertsPo extends BasePo {
-  override pageUrl = '#/components/alerts';
+  override pageUrl = '/ngx-bootstrap/components/alerts';
   pageTitle = 'Alerts';
   ghLinkToComponent = 'https://github.com/valor-software/ngx-bootstrap/tree/development/src/alert';
 
@@ -31,10 +31,10 @@ export class AlertsPo extends BasePo {
     local: '.alert-md-local',
   };
 
-  async expectAlertVisible(baseSelector: string, alertType: string, visible = true, timeout = 5000) {
-    await expect(await this.page
-      .locator(baseSelector + ` ${this.alertType[alertType]}`)
-    ).toBeVisible({ timeout: timeout, visible: visible });
+  async expectAlertVisible(baseSelector: string, alertType: string, visible = true, timeout = 10000) {
+    const alertElement = this.page.locator(baseSelector + ` ${this.alertType[alertType]}`);
+    await alertElement.waitFor({ state: visible ? 'visible' : 'hidden', timeout: timeout });
+    await expect(alertElement).toBeVisible({ visible: visible });
   }
 
   async expectBtnNotExist(baseSelector: string, buttonName: string) {

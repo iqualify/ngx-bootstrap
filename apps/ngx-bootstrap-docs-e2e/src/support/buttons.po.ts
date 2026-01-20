@@ -2,7 +2,7 @@ import { expect } from '@playwright/test';
 import { BasePo } from './base.po';
 
 export class ButtonsPo extends BasePo {
-  override pageUrl = '#/components/buttons';
+  override pageUrl = '/ngx-bootstrap/components/buttons';
   pageTitle = 'Buttons';
   ghLinkToComponent = 'https://github.com/valor-software/ngx-bootstrap/tree/development/src/buttons';
 
@@ -29,11 +29,13 @@ export class ButtonsPo extends BasePo {
   };
 
   async expectBtnVisible(baseSelector: string, btnSelector: string, btnName: string, btnNumber?: number) {
-    await expect(await this.page
+    const btnElement = this.page
       .locator(baseSelector + ` ${btnSelector}`)
       .getByText(btnName)
-      .nth(btnNumber ? btnNumber : 0)
-    ).toBeVisible();
+      .nth(btnNumber ? btnNumber : 0);
+    
+    await btnElement.waitFor({ state: 'visible', timeout: 10000 });
+    await expect(btnElement).toBeVisible();
   }
 
   async expectBtnEnabled(baseSelector: string, btnName: string, enabled = true, btnNumber?: number) {

@@ -2,9 +2,6 @@
 @import "bs-datepicker";
 
 /* HEADER */
-.bs-datepicker-head {
-  width: 150px;
-}
 header {
   padding: 10px 50px 10px 30px;
   height: $header-height;
@@ -346,6 +343,7 @@ header {
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);//  TRY TO CHANGE IT
+          height: 100px;
         }
       }
     }
