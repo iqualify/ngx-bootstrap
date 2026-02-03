@@ -1,29 +1,37 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component, ViewChild } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { TabsetComponent } from '../tabset.component';
 import { TabDirective } from '../tab.directive';
 import { TabsModule } from '../tabs.module';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, TabsModule],
+  imports: [TabsModule],
   template: `
     <tabset>
-      <tab heading="Tab 3" [tabOrder]="3" *ngIf="showTab3">
-        Tab 3 content
-      </tab>
-      <tab heading="Tab 1" [tabOrder]="1" *ngIf="showTab1">
-        Tab 1 content
-      </tab>
-      <tab heading="Tab 2" [tabOrder]="2" *ngIf="showTab2">
-        Tab 2 content
-      </tab>
-      <tab heading="No Order Tab" *ngIf="showNoOrderTab">
-        No order tab content
-      </tab>
+      @if (showTab3) {
+        <tab heading="Tab 3" [tabOrder]="3">
+          Tab 3 content
+        </tab>
+      }
+      @if (showTab1) {
+        <tab heading="Tab 1" [tabOrder]="1">
+          Tab 1 content
+        </tab>
+      }
+      @if (showTab2) {
+        <tab heading="Tab 2" [tabOrder]="2">
+          Tab 2 content
+        </tab>
+      }
+      @if (showNoOrderTab) {
+        <tab heading="No Order Tab">
+          No order tab content
+        </tab>
+      }
     </tabset>
-  `
+    `
 })
 class TestTabOrderingComponent {
   @ViewChild(TabsetComponent, { static: true }) tabset!: TabsetComponent;
@@ -36,7 +44,7 @@ class TestTabOrderingComponent {
 
 @Component({
   standalone: true,
-  imports: [CommonModule, TabsModule],
+  imports: [TabsModule],
   template: `
     <tabset>
       <tab heading="Default 1">
@@ -57,7 +65,7 @@ class TestDefaultOrderingComponent {
 
 @Component({
   standalone: true,
-  imports: [CommonModule, TabsModule],
+  imports: [TabsModule],
   template: `
     <tabset>
       <tab heading="Mixed 3" [tabOrder]="30">
@@ -116,16 +124,16 @@ describe('TabDirective and TabsetComponent - Tab Ordering (Issue #823)', () => {
       const tabs = component.tabset.tabs;
       
       // Should be ordered: Tab 1 (order 1), Tab 2 (order 2), Tab 3 (order 3), No Order Tab (no order)
-      expect(tabs[0].heading).toBe('Tab 1');
+      expect(tabs[0].heading()).toBe('Tab 1');
       expect(tabs[0].tabOrder).toBe(1);
       
-      expect(tabs[1].heading).toBe('Tab 2');
+      expect(tabs[1].heading()).toBe('Tab 2');
       expect(tabs[1].tabOrder).toBe(2);
       
-      expect(tabs[2].heading).toBe('Tab 3');
+      expect(tabs[2].heading()).toBe('Tab 3');
       expect(tabs[2].tabOrder).toBe(3);
       
-      expect(tabs[3].heading).toBe('No Order Tab');
+      expect(tabs[3].heading()).toBe('No Order Tab');
       expect(tabs[3].tabOrder).toBeUndefined();
     });
 
@@ -147,16 +155,16 @@ describe('TabDirective and TabsetComponent - Tab Ordering (Issue #823)', () => {
       freshComponent.showTab3 = true;
       freshFixture.detectChanges();
       expect(freshComponent.tabset.tabs.length).toBe(1);
-      expect(freshComponent.tabset.tabs[0].heading).toBe('Tab 3');
+      expect(freshComponent.tabset.tabs[0].heading()).toBe('Tab 3');
       expect(freshComponent.tabset.tabs[0].tabOrder).toBe(3);
       
       // Add Tab 1 (order 1) - should go before Tab 3
       freshComponent.showTab1 = true;
       freshFixture.detectChanges();
       expect(freshComponent.tabset.tabs.length).toBe(2);
-      expect(freshComponent.tabset.tabs[0].heading).toBe('Tab 1');
+      expect(freshComponent.tabset.tabs[0].heading()).toBe('Tab 1');
       expect(freshComponent.tabset.tabs[0].tabOrder).toBe(1);
-      expect(freshComponent.tabset.tabs[1].heading).toBe('Tab 3');
+      expect(freshComponent.tabset.tabs[1].heading()).toBe('Tab 3');
       expect(freshComponent.tabset.tabs[1].tabOrder).toBe(3);
     });
 
@@ -166,17 +174,17 @@ describe('TabDirective and TabsetComponent - Tab Ordering (Issue #823)', () => {
       fixture.detectChanges();
       
       expect(component.tabset.tabs.length).toBe(3);
-      expect(component.tabset.tabs[0].heading).toBe('Tab 1');
-      expect(component.tabset.tabs[1].heading).toBe('Tab 3');
+      expect(component.tabset.tabs[0].heading()).toBe('Tab 1');
+      expect(component.tabset.tabs[1].heading()).toBe('Tab 3');
       
       // Add Tab 2 back
       component.showTab2 = true;
       fixture.detectChanges();
       
       expect(component.tabset.tabs.length).toBe(4);
-      expect(component.tabset.tabs[0].heading).toBe('Tab 1');
-      expect(component.tabset.tabs[1].heading).toBe('Tab 2');
-      expect(component.tabset.tabs[2].heading).toBe('Tab 3');
+      expect(component.tabset.tabs[0].heading()).toBe('Tab 1');
+      expect(component.tabset.tabs[1].heading()).toBe('Tab 2');
+      expect(component.tabset.tabs[2].heading()).toBe('Tab 3');
     });
 
     it('should handle tabs appearing in different orders due to *ngIf', () => {
@@ -193,20 +201,20 @@ describe('TabDirective and TabsetComponent - Tab Ordering (Issue #823)', () => {
       component.showTab3 = true;
       fixture.detectChanges();
       expect(component.tabset.tabs.length).toBe(1);
-      expect(component.tabset.tabs[0].heading).toBe('Tab 3');
+      expect(component.tabset.tabs[0].heading()).toBe('Tab 3');
       
       component.showTab1 = true;
       fixture.detectChanges();
       expect(component.tabset.tabs.length).toBe(2);
-      expect(component.tabset.tabs[0].heading).toBe('Tab 1'); // Should be first due to order 1
-      expect(component.tabset.tabs[1].heading).toBe('Tab 3');
+      expect(component.tabset.tabs[0].heading()).toBe('Tab 1'); // Should be first due to order 1
+      expect(component.tabset.tabs[1].heading()).toBe('Tab 3');
       
       component.showTab2 = true;
       fixture.detectChanges();
       expect(component.tabset.tabs.length).toBe(3);
-      expect(component.tabset.tabs[0].heading).toBe('Tab 1');
-      expect(component.tabset.tabs[1].heading).toBe('Tab 2'); // Should be inserted in middle
-      expect(component.tabset.tabs[2].heading).toBe('Tab 3');
+      expect(component.tabset.tabs[0].heading()).toBe('Tab 1');
+      expect(component.tabset.tabs[1].heading()).toBe('Tab 2'); // Should be inserted in middle
+      expect(component.tabset.tabs[2].heading()).toBe('Tab 3');
     });
   });
 
@@ -221,9 +229,9 @@ describe('TabDirective and TabsetComponent - Tab Ordering (Issue #823)', () => {
       const tabs = defaultComponent.tabset.tabs;
       
       expect(tabs.length).toBe(3);
-      expect(tabs[0].heading).toBe('Default 1');
-      expect(tabs[1].heading).toBe('Default 2');
-      expect(tabs[2].heading).toBe('Default 3');
+      expect(tabs[0].heading()).toBe('Default 1');
+      expect(tabs[1].heading()).toBe('Default 2');
+      expect(tabs[2].heading()).toBe('Default 3');
       
       // All should have undefined tabOrder
       expect(tabs[0].tabOrder).toBeUndefined();
@@ -255,20 +263,20 @@ describe('TabDirective and TabsetComponent - Tab Ordering (Issue #823)', () => {
       expect(tabs.length).toBe(5);
       
       // Ordered tabs should come first, then unordered tabs in insertion order
-      expect(tabs[0].heading).toBe('Mixed 1');
+      expect(tabs[0].heading()).toBe('Mixed 1');
       expect(tabs[0].tabOrder).toBe(10);
       
-      expect(tabs[1].heading).toBe('Mixed 2');
+      expect(tabs[1].heading()).toBe('Mixed 2');
       expect(tabs[1].tabOrder).toBe(20);
       
-      expect(tabs[2].heading).toBe('Mixed 3');
+      expect(tabs[2].heading()).toBe('Mixed 3');
       expect(tabs[2].tabOrder).toBe(30);
       
       // Unordered tabs should maintain their insertion order after ordered tabs
-      expect(tabs[3].heading).toBe('Mixed Default 1');
+      expect(tabs[3].heading()).toBe('Mixed Default 1');
       expect(tabs[3].tabOrder).toBeUndefined();
       
-      expect(tabs[4].heading).toBe('Mixed Default 2');
+      expect(tabs[4].heading()).toBe('Mixed Default 2');
       expect(tabs[4].tabOrder).toBeUndefined();
     });
   });

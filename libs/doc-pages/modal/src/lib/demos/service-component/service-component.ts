@@ -15,11 +15,11 @@ export class DemoModalServiceFromComponent {
     const initialState: ModalOptions = {
       initialState: {
         list: ['Open a modal with component', 'Pass your data', 'Do something else', '...'],
-        title: 'Modal with component'
+        title: 'Modal with component',
+        closeBtnName: 'Close'
       }
     };
     this.bsModalRef = this.modalService.show(ModalContentComponent, initialState);
-    this.bsModalRef.content.closeBtnName = 'Close';
   }
 }
 
@@ -37,14 +37,18 @@ export class DemoModalServiceFromComponent {
       </button>
     </div>
     <div class="modal-body">
-      <ul *ngIf="list.length">
-        <li *ngFor="let item of list">{{ item }}</li>
-      </ul>
+      @if (list.length) {
+        <ul>
+          @for (item of list; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      }
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">{{ closeBtnName }}</button>
     </div>
-  `,
+    `,
   standalone: false
 })
 export class ModalContentComponent implements OnInit {
