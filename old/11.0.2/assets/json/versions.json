@@ -40,6 +40,11 @@
     "unprefixedUrl": "old/2.0.5"
   },
   {
+    "version": "20.0.2",
+    "url": "ngx-bootstrap/old/20.0.2",
+    "unprefixedUrl": "old/20.0.2"
+  },
+  {
     "version": "3.3.0",
     "url": "ngx-bootstrap/old/3.3.0",
     "unprefixedUrl": "old/3.3.0"
