@@ -23,15 +23,17 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            try {
-              await github.rest.orgs.checkMembershipForUser({
-                org: context.repo.owner,
-                username: context.actor,
-              });
-              core.info(`✅ ${context.actor} is a member of ${context.repo.owner}`);
-            } catch (e) {
+            const { data } = await github.rest.repos.getCollaboratorPermissionLevel({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              username: context.actor,
+            });
+            const permission = data.permission;
+            if (permission === 'admin' || permission === 'write') {
+              core.info(`✅ ${context.actor} has '${permission}' access to ${context.repo.owner}/${context.repo.repo}`);
+            } else {
               core.setFailed(
-                `❌ ${context.actor} is not a member of the ${context.repo.owner} organization. Only org members can trigger test releases.`
+                `❌ ${context.actor} does not have write access to ${context.repo.owner}/${context.repo.repo}. Only org members with write access can trigger test releases.`
               );
             }
 
