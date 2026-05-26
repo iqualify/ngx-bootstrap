@@ -19,7 +19,7 @@ import { Subscription } from 'rxjs';
 import { latinize } from './typeahead-utils';
 import { TypeaheadMatch } from './typeahead-match.class';
 import { TypeaheadDirective } from './typeahead.directive';
-import { typeaheadAnimation } from './typeahead-animations';
+import { TYPEAHEAD_ANIMATION_TIMING } from './typeahead-animations';
 import { TypeaheadOptionItemContext, TypeaheadOptionListContext, TypeaheadTemplateMethods } from './models';
 import { NgTemplateOutlet } from '@angular/common';
 
@@ -46,7 +46,6 @@ import { NgTemplateOutlet } from '@angular/common';
     }
   `
     ],
-    animations: [typeaheadAnimation],
     standalone: true,
     imports: [NgTemplateOutlet],
     providers: [PositioningService]
@@ -66,7 +65,9 @@ export class TypeaheadContainerComponent implements OnDestroy {
   dropup?: boolean;
   guiHeight?: string;
   needScrollbar?: boolean;
-  animationState?: string;
+  _rafId?: number;
+  _fallbackTimeoutId?: ReturnType<typeof setTimeout>;
+  private _animationPlayed = false;
   positionServiceSubscription = new Subscription();
   height = 0;
   popupId = '';
@@ -96,15 +97,10 @@ export class TypeaheadContainerComponent implements OnDestroy {
   ) {
     this.positionServiceSubscription.add(this.positionService.event$?.subscribe(
       () => {
-        if (this.isAnimated) {
-          this.animationState = this.isTopPosition ? 'animated-up' : 'animated-down';
-          this.changeDetectorRef.detectChanges();
-
-          return;
+        if (this.isAnimated && !this._animationPlayed) {
+          this._animationPlayed = true;
+          this._animateExpand(this.element.nativeElement);
         }
-
-        this.animationState = 'unanimated';
-        this.changeDetectorRef.detectChanges();
       }
     ));
   }
@@ -373,7 +369,48 @@ export class TypeaheadContainerComponent implements OnDestroy {
     }
   }
 
+  private _animateExpand(el: HTMLElement): void {
+    this.renderer.setStyle(el, 'display', 'block');
+    this.renderer.setStyle(el, 'overflow', 'hidden');
+    this.renderer.setStyle(el, 'transition', `height ${TYPEAHEAD_ANIMATION_TIMING}`);
+    this.renderer.setStyle(el, 'height', '0');
+
+    // forced reflow
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    el.offsetHeight;
+
+    let finished = false;
+    const finish = () => {
+      if (finished) {
+        return;
+      }
+      finished = true;
+      if (this._fallbackTimeoutId !== undefined) {
+        clearTimeout(this._fallbackTimeoutId);
+        this._fallbackTimeoutId = undefined;
+      }
+      this.renderer.removeStyle(el, 'height');
+      this.renderer.removeStyle(el, 'overflow');
+      this.renderer.removeStyle(el, 'transition');
+      this.renderer.removeStyle(el, 'display');
+    };
+
+    this._fallbackTimeoutId = setTimeout(finish, 270);
+
+    this._rafId = requestAnimationFrame(() => {
+      this._rafId = undefined;
+      this.renderer.setStyle(el, 'height', el.scrollHeight + 'px');
+      el.addEventListener('transitionend', finish, { once: true });
+    });
+  }
+
   ngOnDestroy(): void {
+    if (this._rafId !== undefined) {
+      cancelAnimationFrame(this._rafId);
+    }
+    if (this._fallbackTimeoutId !== undefined) {
+      clearTimeout(this._fallbackTimeoutId);
+    }
     this.positionServiceSubscription.unsubscribe();
   }
 
