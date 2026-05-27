@@ -53,6 +53,14 @@ export class BsDropdownContainerComponent implements OnDestroy {
       this._renderer.addClass(this._element.nativeElement.querySelector('div'), 'open');
 
       if (dropdown) {
+        // Pin at height:0 BEFORE .show makes the element display:block — this
+        // ensures there is no frame where the element is visible at its natural
+        // height before the animation clamps it to 0.
+        if (this._state.isAnimated) {
+          this._renderer.setStyle(dropdown, 'height', '0');
+          this._renderer.setStyle(dropdown, 'overflow', 'hidden');
+        }
+
         this._renderer.addClass(dropdown, 'show');
 
         if (dropdown.classList.contains('dropdown-menu-right') || dropdown.classList.contains('dropdown-menu-end')) {
@@ -79,12 +87,10 @@ export class BsDropdownContainerComponent implements OnDestroy {
   }
 
   private _animateExpand(el: HTMLElement, renderer: Renderer2): void {
-    renderer.setStyle(el, 'display', 'block');
-    renderer.setStyle(el, 'overflow', 'hidden');
+    // height: 0 and overflow: hidden are already set (before .show was added).
     renderer.setStyle(el, 'transition', `height ${DROPDOWN_ANIMATION_TIMING}`);
-    renderer.setStyle(el, 'height', '0');
 
-    // forced reflow
+    // forced reflow — locks height:0 as the CSS "before-change" state
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     el.offsetHeight;
 
@@ -98,15 +104,12 @@ export class BsDropdownContainerComponent implements OnDestroy {
       renderer.removeStyle(el, 'height');
       renderer.removeStyle(el, 'overflow');
       renderer.removeStyle(el, 'transition');
-      renderer.removeStyle(el, 'display');
     };
 
     const fallbackId = setTimeout(finish, 270);
 
-    requestAnimationFrame(() => {
-      renderer.setStyle(el, 'height', el.scrollHeight + 'px');
-      el.addEventListener('transitionend', finish, { once: true });
-    });
+    renderer.setStyle(el, 'height', el.scrollHeight + 'px');
+    el.addEventListener('transitionend', finish, { once: true });
   }
 
   /** @internal */

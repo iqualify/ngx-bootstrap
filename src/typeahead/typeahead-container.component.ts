@@ -65,7 +65,6 @@ export class TypeaheadContainerComponent implements OnDestroy {
   dropup?: boolean;
   guiHeight?: string;
   needScrollbar?: boolean;
-  _rafId?: number;
   _fallbackTimeoutId?: ReturnType<typeof setTimeout>;
   private _animationPlayed = false;
   positionServiceSubscription = new Subscription();
@@ -404,17 +403,11 @@ export class TypeaheadContainerComponent implements OnDestroy {
 
     this._fallbackTimeoutId = setTimeout(finish, 270);
 
-    this._rafId = requestAnimationFrame(() => {
-      this._rafId = undefined;
-      this.renderer.setStyle(el, 'max-height', el.scrollHeight + 'px');
-      el.addEventListener('transitionend', finish, { once: true });
-    });
+    this.renderer.setStyle(el, 'max-height', el.scrollHeight + 'px');
+    el.addEventListener('transitionend', finish, { once: true });
   }
 
   ngOnDestroy(): void {
-    if (this._rafId !== undefined) {
-      cancelAnimationFrame(this._rafId);
-    }
     if (this._fallbackTimeoutId !== undefined) {
       clearTimeout(this._fallbackTimeoutId);
     }
