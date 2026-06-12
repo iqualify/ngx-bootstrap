@@ -1,1 +1,2 @@
-export const COLLAPSE_ANIMATION_TIMING = '400ms cubic-bezier(0.4,0.0,0.2,1)';
+export const COLLAPSE_ANIMATION_DURATION_MS = 400;
+export const COLLAPSE_ANIMATION_TIMING = `${COLLAPSE_ANIMATION_DURATION_MS}ms cubic-bezier(0.4,0.0,0.2,1)`;

@@ -1,1 +1,2 @@
-export const DROPDOWN_ANIMATION_TIMING = '220ms cubic-bezier(0, 0, 0.2, 1)';
+export const DROPDOWN_ANIMATION_DURATION_MS = 220;
+export const DROPDOWN_ANIMATION_TIMING = `${DROPDOWN_ANIMATION_DURATION_MS}ms cubic-bezier(0, 0, 0.2, 1)`;
