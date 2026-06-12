@@ -19,8 +19,8 @@ import { BsDropdownConfig } from './bs-dropdown.config';
 import { BsDropdownContainerComponent } from './bs-dropdown-container.component';
 import { BsDropdownState } from './bs-dropdown.state';
 import { BsDropdownMenuDirective } from './index';
-import { AnimationBuilder, AnimationFactory } from '@angular/animations';
-import { dropdownAnimation } from './dropdown-animations';
+import { DROPDOWN_ANIMATION_DURATION_MS, DROPDOWN_ANIMATION_TIMING } from './dropdown-animations';
+import { animateExpand } from 'ngx-bootstrap/utils';
 
 @Directive({
   selector: '[bsDropdown], [dropdown]',
@@ -124,7 +124,7 @@ export class BsDropdownDirective implements OnInit, OnDestroy {
   private _isDisabled = false;
   private _subscriptions: Subscription[] = [];
   private _isInited = false;
-  private _factoryDropDownAnimation: AnimationFactory;
+  private _cancelExpandAnimation?: () => void;
 
   constructor(
     private _elementRef: ElementRef,
@@ -132,16 +132,13 @@ export class BsDropdownDirective implements OnInit, OnDestroy {
     private _viewContainerRef: ViewContainerRef,
     private _cis: ComponentLoaderFactory,
     private _state: BsDropdownState,
-    private _config: BsDropdownConfig,
-    _builder: AnimationBuilder
+    private _config: BsDropdownConfig
   ) {
     // set initial dropdown state from config
     this._state.autoClose = this._config.autoClose;
     this._state.insideClick = this._config.insideClick;
     this._state.isAnimated = this._config.isAnimated;
     this._state.stopOnClickPropagation = this._config.stopOnClickPropagation;
-
-    this._factoryDropDownAnimation = _builder.build(dropdownAnimation);
 
     // create dropdown component loader
     this._dropdown = this._cis
@@ -374,6 +371,7 @@ export class BsDropdownDirective implements OnInit, OnDestroy {
     for (const sub of this._subscriptions) {
       sub.unsubscribe();
     }
+    this._cancelExpandAnimation?.();
     this._dropdown.dispose();
   }
 
@@ -385,10 +383,16 @@ export class BsDropdownDirective implements OnInit, OnDestroy {
 
   private playAnimation(): void {
     if (this._state.isAnimated && this._inlinedMenu) {
-      setTimeout(() => {
-        if (this._inlinedMenu) {
-          this._factoryDropDownAnimation.create(this._inlinedMenu.rootNodes[0]).play();
-        }
+      const el = this._inlinedMenu.rootNodes[0] as HTMLElement;
+      if (!el) {
+        return;
+      }
+      this._cancelExpandAnimation?.();
+      this._cancelExpandAnimation = animateExpand(this._renderer, el, {
+        timing: DROPDOWN_ANIMATION_TIMING,
+        durationMs: DROPDOWN_ANIMATION_DURATION_MS,
+        useRaf: true,
+        manageDisplay: true
       });
     }
   }

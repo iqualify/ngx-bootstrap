@@ -2373,5 +2373,61 @@ export const ngdoc: any = {
     description: '',
     methods: [],
     properties: []
+  },
+  TransitionFinishedRef: {
+    fileName: 'src/utils/transition-animation.ts',
+    className: 'TransitionFinishedRef',
+    description: '',
+    methods: [
+      {
+        name: 'cancel',
+        description:
+          '<p>Removes the transitionend listener and clears the fallback timeout. Never calls onFinish. Idempotent.</p>\n',
+        args: [],
+        returnType: 'void'
+      }
+    ],
+    properties: []
+  },
+  ExpandAnimationOptions: {
+    fileName: 'src/utils/transition-animation.ts',
+    className: 'ExpandAnimationOptions',
+    description: '',
+    methods: [],
+    properties: [
+      {
+        name: 'durationMs',
+        type: 'number',
+        description: '<p>Transition duration in ms; drives the fallback timeout.</p>\n'
+      },
+      {
+        name: 'manageDisplay',
+        type: 'boolean',
+        description: '<p>Set <code>display: block</code> before animating and remove it when finished.</p>\n'
+      },
+      {
+        name: 'onDone',
+        type: '() => void',
+        description:
+          '<p>Called after the inline styles are cleaned up. Not called when the animation is cancelled.</p>\n'
+      },
+      {
+        name: 'property',
+        type: '"height" | "max-height"',
+        description:
+          '<p>CSS property to animate. <code>max-height</code> avoids conflicts with <code>height</code> bindings. Default: <code>height</code>.</p>\n'
+      },
+      {
+        name: 'timing',
+        type: 'string',
+        description: '<p>CSS transition timing, e.g. <code>&#39;220ms cubic-bezier(0, 0, 0.2, 1)&#39;</code>.</p>\n'
+      },
+      {
+        name: 'useRaf',
+        type: 'boolean',
+        description:
+          '<p>Set the target size inside a requestAnimationFrame instead of synchronously after the reflow.</p>\n'
+      }
+    ]
   }
 };
