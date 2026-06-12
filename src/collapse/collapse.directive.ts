@@ -10,10 +10,9 @@ import {
   output
 } from '@angular/core';
 
-import { COLLAPSE_ANIMATION_TIMING } from './collapse-animations';
+import { onTransitionFinished, TransitionFinishedRef } from 'ngx-bootstrap/utils';
 
-// Parsed from COLLAPSE_ANIMATION_TIMING; used by the fallback timeout.
-const ANIMATION_DURATION_MS = 400;
+import { COLLAPSE_ANIMATION_DURATION_MS, COLLAPSE_ANIMATION_TIMING } from './collapse-animations';
 
 @Directive({
     selector: '[collapse]',
@@ -56,9 +55,8 @@ export class CollapseDirective implements AfterViewChecked, OnDestroy {
   private _isAnimationDone?: boolean;
   private _stylesLoaded = false;
   private _isTransitionRunning = false;
-  private _transitionEndHandler?: (e: TransitionEvent) => void;
+  private _pendingFinish?: TransitionFinishedRef;
   private _rafId?: number;
-  private _fallbackTimeoutId?: ReturnType<typeof setTimeout>;
 
   private _COLLAPSE_ACTION_NAME = 'collapse';
   private _EXPAND_ACTION_NAME = 'expand';
@@ -152,9 +150,9 @@ export class CollapseDirective implements AfterViewChecked, OnDestroy {
     const isExpand = action === this._EXPAND_ACTION_NAME;
     // True when a CSS transition is already mid-flight; we can reverse it by
     // snapshotting the current rendered height and flipping the target.
-    const wasRunning = !!this._transitionEndHandler;
+    const wasRunning = !!this._pendingFinish;
 
-    this._cancelPending(el);
+    this._cancelPending();
 
     // Ensure the element is visible before measuring scrollHeight — Bootstrap's
     // .collapse:not(.show) { display:none } can win over a missing inline style.
@@ -166,7 +164,7 @@ export class CollapseDirective implements AfterViewChecked, OnDestroy {
 
     return (callback: () => void) => {
       const finish = () => {
-        this._cancelPending(el);
+        this._cancelPending();
         this._isTransitionRunning = false;
         if (isExpand) {
           // Remove the inline display so Bootstrap classes resume display control.
@@ -182,16 +180,9 @@ export class CollapseDirective implements AfterViewChecked, OnDestroy {
         callback();
       };
 
-      this._transitionEndHandler = (e: TransitionEvent) => {
-        // Guard against bubbled events from child elements or unrelated properties.
-        if (e.target !== el || e.propertyName !== 'height') return;
-        finish();
-      };
-      el.addEventListener('transitionend', this._transitionEndHandler as EventListener);
-
-      // Fallback: if transitionend never fires (e.g. start == end value),
-      // clear the stuck state after the animation duration plus a small buffer.
-      this._fallbackTimeoutId = setTimeout(finish, ANIMATION_DURATION_MS + 50);
+      // Guards against bubbled child events; falls back to a timeout if
+      // transitionend never fires (e.g. start == end value).
+      this._pendingFinish = onTransitionFinished(el, 'height', COLLAPSE_ANIMATION_DURATION_MS, finish);
 
       if (wasRunning) {
         // Mid-animation reversal: snapshot the current rendered height, force
@@ -232,22 +223,15 @@ export class CollapseDirective implements AfterViewChecked, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    const el = this._el.nativeElement as HTMLElement;
-    this._cancelPending(el);
+    this._cancelPending();
   }
 
-  private _cancelPending(el: HTMLElement): void {
-    if (this._transitionEndHandler) {
-      el.removeEventListener('transitionend', this._transitionEndHandler as EventListener);
-      this._transitionEndHandler = undefined;
-    }
+  private _cancelPending(): void {
+    this._pendingFinish?.cancel();
+    this._pendingFinish = undefined;
     if (this._rafId !== undefined) {
       cancelAnimationFrame(this._rafId);
       this._rafId = undefined;
-    }
-    if (this._fallbackTimeoutId !== undefined) {
-      clearTimeout(this._fallbackTimeoutId);
-      this._fallbackTimeoutId = undefined;
     }
   }
 }
