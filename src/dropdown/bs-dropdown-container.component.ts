@@ -9,7 +9,8 @@ import {
 
 import { BsDropdownState } from './bs-dropdown.state';
 
-import { DROPDOWN_ANIMATION_TIMING } from './dropdown-animations';
+import { DROPDOWN_ANIMATION_DURATION_MS, DROPDOWN_ANIMATION_TIMING } from './dropdown-animations';
+import { animateExpand } from 'ngx-bootstrap/utils';
 import { Subscription } from 'rxjs';
 import { NgClass } from '@angular/common';
 
@@ -39,6 +40,7 @@ export class BsDropdownContainerComponent implements OnDestroy {
   }
 
   private _subscription: Subscription;
+  private _cancelExpandAnimation?: () => void;
 
   constructor(
     private _state: BsDropdownState,
@@ -78,38 +80,17 @@ export class BsDropdownContainerComponent implements OnDestroy {
       }
 
       if (dropdown && this._state.isAnimated) {
-        this._animateExpand(dropdown, this._renderer);
+        // height: 0 and overflow: hidden are already set (before .show was added).
+        this._cancelExpandAnimation?.();
+        this._cancelExpandAnimation = animateExpand(this._renderer, dropdown, {
+          timing: DROPDOWN_ANIMATION_TIMING,
+          durationMs: DROPDOWN_ANIMATION_DURATION_MS
+        });
       }
 
       this.cd.markForCheck();
       this.cd.detectChanges();
     });
-  }
-
-  private _animateExpand(el: HTMLElement, renderer: Renderer2): void {
-    // height: 0 and overflow: hidden are already set (before .show was added).
-    renderer.setStyle(el, 'transition', `height ${DROPDOWN_ANIMATION_TIMING}`);
-
-    // forced reflow — locks height:0 as the CSS "before-change" state
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    el.offsetHeight;
-
-    let finished = false;
-    const finish = () => {
-      if (finished) {
-        return;
-      }
-      finished = true;
-      clearTimeout(fallbackId);
-      renderer.removeStyle(el, 'height');
-      renderer.removeStyle(el, 'overflow');
-      renderer.removeStyle(el, 'transition');
-    };
-
-    const fallbackId = setTimeout(finish, 270);
-
-    renderer.setStyle(el, 'height', el.scrollHeight + 'px');
-    el.addEventListener('transitionend', finish, { once: true });
   }
 
   /** @internal */
@@ -118,6 +99,7 @@ export class BsDropdownContainerComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this._cancelExpandAnimation?.();
     this._subscription.unsubscribe();
   }
 }

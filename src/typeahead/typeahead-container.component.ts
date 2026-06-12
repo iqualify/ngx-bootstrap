@@ -12,14 +12,14 @@ import {
   output
 } from '@angular/core';
 
-import { Utils } from 'ngx-bootstrap/utils';
+import { animateExpand, Utils } from 'ngx-bootstrap/utils';
 import { PositioningService } from 'ngx-bootstrap/positioning';
 import { Subscription } from 'rxjs';
 
 import { latinize } from './typeahead-utils';
 import { TypeaheadMatch } from './typeahead-match.class';
 import { TypeaheadDirective } from './typeahead.directive';
-import { TYPEAHEAD_ANIMATION_TIMING } from './typeahead-animations';
+import { TYPEAHEAD_ANIMATION_DURATION_MS, TYPEAHEAD_ANIMATION_TIMING } from './typeahead-animations';
 import { TypeaheadOptionItemContext, TypeaheadOptionListContext, TypeaheadTemplateMethods } from './models';
 import { NgTemplateOutlet } from '@angular/common';
 
@@ -65,7 +65,7 @@ export class TypeaheadContainerComponent implements OnDestroy {
   dropup?: boolean;
   guiHeight?: string;
   needScrollbar?: boolean;
-  _fallbackTimeoutId?: ReturnType<typeof setTimeout>;
+  private _cancelExpandAnimation?: () => void;
   private _animationPlayed = false;
   positionServiceSubscription = new Subscription();
   height = 0;
@@ -94,7 +94,6 @@ export class TypeaheadContainerComponent implements OnDestroy {
     public element: ElementRef,
     private changeDetectorRef: ChangeDetectorRef
   ) {
-    this.renderer.setAttribute(this.element.nativeElement, 'id', this.popupId);
     // Start hidden before the first paint; position-service event will reveal or animate it.
     // Using max-height (not height) avoids conflict with the [style.height] host binding.
     this.renderer.setStyle(this.element.nativeElement, 'max-height', '0');
@@ -381,36 +380,16 @@ export class TypeaheadContainerComponent implements OnDestroy {
   private _animateExpand(el: HTMLElement): void {
     // el is already at max-height: 0; overflow: hidden (set in constructor).
     // Animating max-height avoids conflict with the [style.height] host binding.
-    this.renderer.setStyle(el, 'transition', `max-height ${TYPEAHEAD_ANIMATION_TIMING}`);
-
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    el.offsetHeight;
-
-    let finished = false;
-    const finish = () => {
-      if (finished) {
-        return;
-      }
-      finished = true;
-      if (this._fallbackTimeoutId !== undefined) {
-        clearTimeout(this._fallbackTimeoutId);
-        this._fallbackTimeoutId = undefined;
-      }
-      this.renderer.removeStyle(el, 'max-height');
-      this.renderer.removeStyle(el, 'overflow');
-      this.renderer.removeStyle(el, 'transition');
-    };
-
-    this._fallbackTimeoutId = setTimeout(finish, 270);
-
-    this.renderer.setStyle(el, 'max-height', el.scrollHeight + 'px');
-    el.addEventListener('transitionend', finish, { once: true });
+    this._cancelExpandAnimation?.();
+    this._cancelExpandAnimation = animateExpand(this.renderer, el, {
+      property: 'max-height',
+      timing: TYPEAHEAD_ANIMATION_TIMING,
+      durationMs: TYPEAHEAD_ANIMATION_DURATION_MS
+    });
   }
 
   ngOnDestroy(): void {
-    if (this._fallbackTimeoutId !== undefined) {
-      clearTimeout(this._fallbackTimeoutId);
-    }
+    this._cancelExpandAnimation?.();
     this.positionServiceSubscription.unsubscribe();
   }
 

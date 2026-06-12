@@ -23,7 +23,8 @@ import { CalendarCellViewModel, DayViewModel } from '../../models';
 import { BsDatepickerActions } from '../../reducer/bs-datepicker.actions';
 import { BsDatepickerEffects } from '../../reducer/bs-datepicker.effects';
 import { BsDatepickerStore } from '../../reducer/bs-datepicker.store';
-import { DATEPICKER_ANIMATION_TIMING } from '../../datepicker-animations';
+import { DATEPICKER_ANIMATION_DURATION_MS, DATEPICKER_ANIMATION_TIMING } from '../../datepicker-animations';
+import { animateExpand } from 'ngx-bootstrap/utils';
 import { BsCustomDates, BsCustomDatesViewComponent } from './bs-custom-dates-view.component';
 import { dayInMilliseconds } from '../../reducer/_defaults';
 import { BsYearsCalendarViewComponent } from './bs-years-calendar-view.component';
@@ -62,8 +63,7 @@ export class BsDaterangepickerContainerComponent
   }
 
   valueChange = new EventEmitter<Date[]>();
-  _rafId?: number;
-  _fallbackTimeoutId?: ReturnType<typeof setTimeout>;
+  private _cancelExpandAnimation?: () => void;
 
   _rangeStack: Date[] = [];
   override chosenRange: Date[] = [];
@@ -303,48 +303,18 @@ export class BsDaterangepickerContainerComponent
   }
 
   private _animateExpand(el: HTMLElement, onDone: () => void): void {
-    this._renderer.setStyle(el, 'display', 'block');
-    this._renderer.setStyle(el, 'overflow', 'hidden');
-    this._renderer.setStyle(el, 'transition', `height ${DATEPICKER_ANIMATION_TIMING}`);
-    this._renderer.setStyle(el, 'height', '0');
-
-    // forced reflow
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    el.offsetHeight;
-
-    let finished = false;
-    const finish = () => {
-      if (finished) {
-        return;
-      }
-      finished = true;
-      if (this._fallbackTimeoutId !== undefined) {
-        clearTimeout(this._fallbackTimeoutId);
-        this._fallbackTimeoutId = undefined;
-      }
-      this._renderer.removeStyle(el, 'height');
-      this._renderer.removeStyle(el, 'overflow');
-      this._renderer.removeStyle(el, 'transition');
-      this._renderer.removeStyle(el, 'display');
-      onDone();
-    };
-
-    this._fallbackTimeoutId = setTimeout(finish, 270);
-
-    this._rafId = requestAnimationFrame(() => {
-      this._rafId = undefined;
-      this._renderer.setStyle(el, 'height', el.scrollHeight + 'px');
-      el.addEventListener('transitionend', finish, { once: true });
+    this._cancelExpandAnimation?.();
+    this._cancelExpandAnimation = animateExpand(this._renderer, el, {
+      timing: DATEPICKER_ANIMATION_TIMING,
+      durationMs: DATEPICKER_ANIMATION_DURATION_MS,
+      useRaf: true,
+      manageDisplay: true,
+      onDone
     });
   }
 
   ngOnDestroy(): void {
-    if (this._rafId !== undefined) {
-      cancelAnimationFrame(this._rafId);
-    }
-    if (this._fallbackTimeoutId !== undefined) {
-      clearTimeout(this._fallbackTimeoutId);
-    }
+    this._cancelExpandAnimation?.();
     for (const sub of this._subs) {
       sub.unsubscribe();
     }

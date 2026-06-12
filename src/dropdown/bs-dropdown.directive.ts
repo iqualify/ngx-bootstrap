@@ -19,7 +19,8 @@ import { BsDropdownConfig } from './bs-dropdown.config';
 import { BsDropdownContainerComponent } from './bs-dropdown-container.component';
 import { BsDropdownState } from './bs-dropdown.state';
 import { BsDropdownMenuDirective } from './index';
-import { DROPDOWN_ANIMATION_TIMING } from './dropdown-animations';
+import { DROPDOWN_ANIMATION_DURATION_MS, DROPDOWN_ANIMATION_TIMING } from './dropdown-animations';
+import { animateExpand } from 'ngx-bootstrap/utils';
 
 @Directive({
   selector: '[bsDropdown], [dropdown]',
@@ -123,8 +124,7 @@ export class BsDropdownDirective implements OnInit, OnDestroy {
   private _isDisabled = false;
   private _subscriptions: Subscription[] = [];
   private _isInited = false;
-  private _rafId?: number;
-  private _fallbackTimeoutId?: ReturnType<typeof setTimeout>;
+  private _cancelExpandAnimation?: () => void;
 
   constructor(
     private _elementRef: ElementRef,
@@ -371,12 +371,7 @@ export class BsDropdownDirective implements OnInit, OnDestroy {
     for (const sub of this._subscriptions) {
       sub.unsubscribe();
     }
-    if (this._rafId !== undefined) {
-      cancelAnimationFrame(this._rafId);
-    }
-    if (this._fallbackTimeoutId !== undefined) {
-      clearTimeout(this._fallbackTimeoutId);
-    }
+    this._cancelExpandAnimation?.();
     this._dropdown.dispose();
   }
 
@@ -392,37 +387,12 @@ export class BsDropdownDirective implements OnInit, OnDestroy {
       if (!el) {
         return;
       }
-      this._renderer.setStyle(el, 'display', 'block');
-      this._renderer.setStyle(el, 'overflow', 'hidden');
-      this._renderer.setStyle(el, 'transition', `height ${DROPDOWN_ANIMATION_TIMING}`);
-      this._renderer.setStyle(el, 'height', '0');
-
-      // forced reflow
-      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-      el.offsetHeight;
-
-      let finished = false;
-      const finish = () => {
-        if (finished) {
-          return;
-        }
-        finished = true;
-        if (this._fallbackTimeoutId !== undefined) {
-          clearTimeout(this._fallbackTimeoutId);
-          this._fallbackTimeoutId = undefined;
-        }
-        this._renderer.removeStyle(el, 'height');
-        this._renderer.removeStyle(el, 'overflow');
-        this._renderer.removeStyle(el, 'transition');
-        this._renderer.removeStyle(el, 'display');
-      };
-
-      this._fallbackTimeoutId = setTimeout(finish, 270);
-
-      this._rafId = requestAnimationFrame(() => {
-        this._rafId = undefined;
-        this._renderer.setStyle(el, 'height', el.scrollHeight + 'px');
-        el.addEventListener('transitionend', finish, { once: true });
+      this._cancelExpandAnimation?.();
+      this._cancelExpandAnimation = animateExpand(this._renderer, el, {
+        timing: DROPDOWN_ANIMATION_TIMING,
+        durationMs: DROPDOWN_ANIMATION_DURATION_MS,
+        useRaf: true,
+        manageDisplay: true
       });
     }
   }
