@@ -55,6 +55,11 @@
     "unprefixedUrl": "old/21.0.1"
   },
   {
+    "version": "21.2.0",
+    "url": "ngx-bootstrap/old/21.2.0",
+    "unprefixedUrl": "old/21.2.0"
+  },
+  {
     "version": "3.3.0",
     "url": "ngx-bootstrap/old/3.3.0",
     "unprefixedUrl": "old/3.3.0"
