@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { BsComponentRef } from 'ngx-bootstrap/component-loader';
+import { BsComponentRef } from '@iqualify/ngx-bootstrap/component-loader';
 import { BsDropdownMenuDirective } from './bs-dropdown-menu.directive';
 
 @Injectable({providedIn: 'platform'})

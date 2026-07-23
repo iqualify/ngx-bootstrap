@@ -13,8 +13,8 @@ import {
   EventEmitter
 } from '@angular/core';
 
-import { isBs3, Utils } from 'ngx-bootstrap/utils';
-import { PositioningService } from 'ngx-bootstrap/positioning';
+import { isBs3, Utils } from '@iqualify/ngx-bootstrap/utils';
+import { PositioningService } from '@iqualify/ngx-bootstrap/positioning';
 import { Subscription } from 'rxjs';
 
 import { latinize } from './typeahead-utils';

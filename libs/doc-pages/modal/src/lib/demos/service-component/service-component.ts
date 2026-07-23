@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
+import { BsModalService, BsModalRef, ModalOptions } from '@iqualify/ngx-bootstrap/modal';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector

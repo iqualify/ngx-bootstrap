@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 
 import { BsDropdownState } from './bs-dropdown.state';
-import { isBs3 } from 'ngx-bootstrap/utils';
+import { isBs3 } from '@iqualify/ngx-bootstrap/utils';
 
 import { dropdownAnimation } from './dropdown-animations';
 import { AnimationBuilder, AnimationFactory } from '@angular/animations';

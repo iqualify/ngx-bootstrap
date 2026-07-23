@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DatepickerDateTooltipText } from 'ngx-bootstrap/datepicker';
+import { DatepickerDateTooltipText } from '@iqualify/ngx-bootstrap/datepicker';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector

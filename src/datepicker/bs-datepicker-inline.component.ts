@@ -13,7 +13,7 @@ import {
   ViewContainerRef
 } from '@angular/core';
 
-import { ComponentLoader, ComponentLoaderFactory } from 'ngx-bootstrap/component-loader';
+import { ComponentLoader, ComponentLoaderFactory } from '@iqualify/ngx-bootstrap/component-loader';
 
 import { Subscription } from 'rxjs';
 import { BsDatepickerInlineConfig } from './bs-datepicker-inline.config';

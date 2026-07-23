@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ProgressbarType } from 'ngx-bootstrap/progressbar';
+import { ProgressbarType } from '@iqualify/ngx-bootstrap/progressbar';
 
 interface IStack {
   type: ProgressbarType;

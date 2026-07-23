@@ -1,4 +1,4 @@
-import { DatepickerModule } from 'ngx-bootstrap/datepicker';
+import { DatepickerModule } from '@iqualify/ngx-bootstrap/datepicker';
 
 @NgModule({
   imports: [DatepickerModule.forRoot(),...]

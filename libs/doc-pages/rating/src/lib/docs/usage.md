@@ -1,4 +1,4 @@
-import { RatingModule } from 'ngx-bootstrap/rating';
+import { RatingModule } from '@iqualify/ngx-bootstrap/rating';
 
 @NgModule({
   imports: [RatingModule.forRoot(),...]

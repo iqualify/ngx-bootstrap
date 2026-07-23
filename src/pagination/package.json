@@ -1,5 +1,5 @@
 {
-  "name": "ngx-bootstrap/pagination",
+  "name": "@iqualify/ngx-bootstrap/pagination",
   "version": "9.0.0",
   "author": "Dmitriy Shekhovtsov <valorkin@gmail.com>",
   "license": "MIT"

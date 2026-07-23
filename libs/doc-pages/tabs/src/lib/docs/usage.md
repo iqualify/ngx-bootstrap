@@ -1,4 +1,4 @@
-import { TabsModule } from 'ngx-bootstrap/tabs';
+import { TabsModule } from '@iqualify/ngx-bootstrap/tabs';
 
 @NgModule({
   imports: [TabsModule.forRoot(),...]

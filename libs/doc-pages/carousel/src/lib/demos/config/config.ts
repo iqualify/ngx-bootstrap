@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CarouselConfig } from 'ngx-bootstrap/carousel';
+import { CarouselConfig } from '@iqualify/ngx-bootstrap/carousel';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector

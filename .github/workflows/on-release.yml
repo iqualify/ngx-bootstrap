@@ -118,5 +118,5 @@ jobs:
           key: dist-${{ github.run_id }}
       - uses: JS-DevTools/npm-publish@v1
         with:
-          package: "dist/ngx-bootstrap/package.json"
+          package: "dist/@iqualify/ngx-bootstrap/package.json"
           token: ${{ secrets.NPM_TOKEN }}

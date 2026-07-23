@@ -77,6 +77,6 @@ describe('ng-add schematic', () => {
     const content = tree.readContent(getAppModulePath(tree, getProjectMainFile(project)));
     expect(checkComponentName(options.component)).toBeTruthy();
     expect(content).toBeTruthy();
-    expect(content.includes(`import { CarouselModule } from 'ngx-bootstrap/carousel'`)).toBeTruthy();
+    expect(content.includes(`import { CarouselModule } from '@iqualify/ngx-bootstrap/carousel'`)).toBeTruthy();
   });
 });

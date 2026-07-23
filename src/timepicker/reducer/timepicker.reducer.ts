@@ -1,4 +1,4 @@
-import { Action } from 'ngx-bootstrap/mini-ngrx';
+import { Action } from '@iqualify/ngx-bootstrap/mini-ngrx';
 import {
   canChangeHours,
   canChangeMinutes,

@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { BsDaterangepickerDirective, BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
+import { BsDaterangepickerDirective, BsDatepickerConfig } from '@iqualify/ngx-bootstrap/datepicker';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector

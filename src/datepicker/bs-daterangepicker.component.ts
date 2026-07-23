@@ -8,7 +8,7 @@ import { BsDaterangepickerConfig } from './bs-daterangepicker.config';
 import { BsDaterangepickerContainerComponent } from './themes/bs/bs-daterangepicker-container.component';
 import { Observable, Subscription, Subject, BehaviorSubject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
-import { ComponentLoaderFactory, ComponentLoader } from 'ngx-bootstrap/component-loader';
+import { ComponentLoaderFactory, ComponentLoader } from '@iqualify/ngx-bootstrap/component-loader';
 import { BsDatepickerConfig } from './bs-datepicker.config';
 import { DatepickerDateCustomClasses } from './models';
 import {

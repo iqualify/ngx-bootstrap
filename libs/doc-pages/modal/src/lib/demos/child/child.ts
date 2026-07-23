@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { ModalDirective } from 'ngx-bootstrap/modal';
+import { ModalDirective } from '@iqualify/ngx-bootstrap/modal';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector

@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/ngx-bootstrap/accordion",
+  "dest": "../../dist/@iqualify/ngx-bootstrap/accordion",
   "lib": {
     "entryFile": "index.ts"
   }

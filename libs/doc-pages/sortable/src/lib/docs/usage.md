@@ -1,4 +1,4 @@
-import { SortableModule } from 'ngx-bootstrap/sortable';
+import { SortableModule } from '@iqualify/ngx-bootstrap/sortable';
 
 @NgModule({
   imports: [SortableModule.forRoot(),...]

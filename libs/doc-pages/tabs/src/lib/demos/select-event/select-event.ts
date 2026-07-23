@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TabDirective } from 'ngx-bootstrap/tabs';
+import { TabDirective } from '@iqualify/ngx-bootstrap/tabs';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector

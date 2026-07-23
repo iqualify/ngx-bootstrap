@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { BsDatepickerConfig, BsDatepickerViewMode } from 'ngx-bootstrap/datepicker';
+import { BsDatepickerConfig, BsDatepickerViewMode } from '@iqualify/ngx-bootstrap/datepicker';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector

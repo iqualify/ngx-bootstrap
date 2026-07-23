@@ -13,7 +13,7 @@ import {
   SimpleChanges,
   ViewContainerRef
 } from '@angular/core';
-import { ComponentLoader, ComponentLoaderFactory } from 'ngx-bootstrap/component-loader';
+import { ComponentLoader, ComponentLoaderFactory } from '@iqualify/ngx-bootstrap/component-loader';
 import { BehaviorSubject, Observable, Subject, Subscription } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { BsDatepickerConfig } from './bs-datepicker.config';

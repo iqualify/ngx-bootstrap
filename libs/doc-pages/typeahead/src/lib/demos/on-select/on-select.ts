@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
+import { TypeaheadMatch } from '@iqualify/ngx-bootstrap/typeahead';
 import { DataSourceType } from '../interfaces/typeahead.interfaces';
 
 @Component({

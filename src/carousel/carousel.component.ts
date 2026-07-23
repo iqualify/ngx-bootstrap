@@ -20,7 +20,7 @@ import {
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
-import { isBs3, LinkedList, getBsVer, IBsVersion } from 'ngx-bootstrap/utils';
+import { isBs3, LinkedList, getBsVer, IBsVersion } from '@iqualify/ngx-bootstrap/utils';
 import { SlideComponent } from './slide.component';
 import { CarouselConfig } from './carousel.config';
 import { findLastIndex, chunkByNumber, isNumber } from './utils';

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TabsetConfig } from 'ngx-bootstrap/tabs';
+import { TabsetConfig } from '@iqualify/ngx-bootstrap/tabs';
 
 export function getTabsetConfig(): TabsetConfig {
   return Object.assign(new TabsetConfig(), { type: 'tabs', isKeysAllowed: false });

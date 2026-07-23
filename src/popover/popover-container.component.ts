@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Input, Component } from '@angular/core';
 import { PopoverConfig } from './popover.config';
-import { getBsVer, IBsVersion } from 'ngx-bootstrap/utils';
-import { PlacementForBs5, checkMargins, AvailbleBSPositions } from 'ngx-bootstrap/positioning';
+import { getBsVer, IBsVersion } from '@iqualify/ngx-bootstrap/utils';
+import { PlacementForBs5, checkMargins, AvailbleBSPositions } from '@iqualify/ngx-bootstrap/positioning';
 
 @Component({
   selector: 'popover-container',

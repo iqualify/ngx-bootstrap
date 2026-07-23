@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MiniStore, Action, MiniState } from 'ngx-bootstrap/mini-ngrx';
+import { MiniStore, Action, MiniState } from '@iqualify/ngx-bootstrap/mini-ngrx';
 import { BsDatepickerState, initialDatepickerState } from './bs-datepicker.state';
 import { BehaviorSubject } from 'rxjs';
 import { bsDatepickerReducer } from './bs-datepicker.reducer';

@@ -8,7 +8,7 @@ import {
   startOf,
   isArray,
   isSame
-} from 'ngx-bootstrap/chronos';
+} from '@iqualify/ngx-bootstrap/chronos';
 import { BsDatepickerState } from '../reducer/bs-datepicker.state';
 import { BsCustomDates } from '../themes/bs/bs-custom-dates-view.component';
 

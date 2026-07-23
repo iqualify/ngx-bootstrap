@@ -1,4 +1,4 @@
-import { ModalModule } from 'ngx-bootstrap/modal';
+import { ModalModule } from '@iqualify/ngx-bootstrap/modal';
 
 @NgModule({
   imports: [ModalModule.forRoot(),...]

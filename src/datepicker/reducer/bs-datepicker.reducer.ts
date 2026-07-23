@@ -1,5 +1,5 @@
 import { BsDatepickerState, BsDatepickerViewState, initialDatepickerState } from './bs-datepicker.state';
-import { Action } from 'ngx-bootstrap/mini-ngrx';
+import { Action } from '@iqualify/ngx-bootstrap/mini-ngrx';
 import { BsDatepickerActions } from './bs-datepicker.actions';
 import { calcDaysCalendar } from '../engine/calc-days-calendar';
 import { formatDaysCalendar } from '../engine/format-days-calendar';
@@ -14,7 +14,7 @@ import {
   isAfter,
   isBefore,
   isSame
-} from 'ngx-bootstrap/chronos';
+} from '@iqualify/ngx-bootstrap/chronos';
 import { canSwitchMode } from '../engine/view-mode';
 import { formatMonthsCalendar } from '../engine/format-months-calendar';
 import { flagMonthsCalendar } from '../engine/flag-months-calendar';

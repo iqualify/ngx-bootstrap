@@ -4,7 +4,7 @@
 import { Renderer2 } from '@angular/core';
 import { Data, PlacementForBs5 } from '../models';
 import { checkMargins } from './checkMargin';
-import { getBsVer } from 'ngx-bootstrap/utils';
+import { getBsVer } from '@iqualify/ngx-bootstrap/utils';
 
 export function updateContainerClass(data: Data, renderer?: Renderer2): void {
   const target = data.instance.target;

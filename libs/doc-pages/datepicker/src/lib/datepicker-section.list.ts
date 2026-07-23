@@ -72,7 +72,7 @@ export const demoComponentContent: ContentSection[] = [
             <li>Load it from CDN. Add <code>&lt;link rel="stylesheet"
               href="https://unpkg.com/ngx-bootstrap/datepicker/bs-datepicker.css"&gt;</code> to your
               <code>index.html</code></li>
-            <li>Load it from <code>dist/ngx-bootstrap/datepicker/bs-datepicker.css</code> via package bundler
+            <li>Load it from <code>dist/@iqualify/ngx-bootstrap/datepicker/bs-datepicker.css</code> via package bundler
               like Angular CLI, if you're using one.
             </li>
           </ul>
@@ -166,8 +166,8 @@ export const demoComponentContent: ContentSection[] = [
           <p>To use a different locale, you have to import it from <code>ngx-bootstrap/chronos</code> first, then
           define it in your <code>@NgModule</code> using function <code>defineLocale</code></p>
           <p>Example: </p>
-          <code>import { defineLocale } from 'ngx-bootstrap/chronos';</code><br>
-          <code>import { deLocale } from 'ngx-bootstrap/locale';</code><br>
+          <code>import { defineLocale } from '@iqualify/ngx-bootstrap/chronos';</code><br>
+          <code>import { deLocale } from '@iqualify/ngx-bootstrap/locale';</code><br>
           <code>defineLocale('de', deLocale);</code>
           <br>
           <br>

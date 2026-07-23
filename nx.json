@@ -1,5 +1,5 @@
 {
-  "npmScope": "ngx-bootstrap-base",
+  "npmScope": "@iqualify",
   "affected": {
     "defaultBase": "development"
   },

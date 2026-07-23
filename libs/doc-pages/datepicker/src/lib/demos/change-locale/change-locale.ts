@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { BsLocaleService } from 'ngx-bootstrap/datepicker';
-import { listLocales } from 'ngx-bootstrap/chronos';
+import { BsLocaleService } from '@iqualify/ngx-bootstrap/datepicker';
+import { listLocales } from '@iqualify/ngx-bootstrap/chronos';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector

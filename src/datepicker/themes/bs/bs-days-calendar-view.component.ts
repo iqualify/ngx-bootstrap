@@ -5,7 +5,7 @@ import {
   Output
 } from '@angular/core';
 
-import { isSameDay } from 'ngx-bootstrap/chronos';
+import { isSameDay } from '@iqualify/ngx-bootstrap/chronos';
 
 import {
   BsDatepickerViewMode,

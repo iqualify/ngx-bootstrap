@@ -13,7 +13,7 @@ import {
   ViewContainerRef
 } from '@angular/core';
 import { NgControl } from '@angular/forms';
-import { ComponentLoader, ComponentLoaderFactory } from 'ngx-bootstrap/component-loader';
+import { ComponentLoader, ComponentLoaderFactory } from '@iqualify/ngx-bootstrap/component-loader';
 
 import { EMPTY, from, isObservable, Observable, Subscription } from 'rxjs';
 import { debounceTime, filter, mergeMap, switchMap, tap, toArray } from 'rxjs/operators';

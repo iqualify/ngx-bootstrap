@@ -81,7 +81,7 @@ npm install ngx-bootstrap --save
 
 Add wanted package to NgModule imports:
 ```
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { TooltipModule } from '@iqualify/ngx-bootstrap/tooltip';
 
 @NgModule({
   ...
@@ -119,7 +119,7 @@ As you may know `ngx-bootstrap` support several `bootstrap.css` versions at the 
 
 Sometimes, your project might contain some library that could interfere with the bootstrap framework, or you might have a customized version of bootstrap. The consequence is that the process of determining bootstrap version might be failed, which can break the UI. In that case, we can still set the bootstrap version manually in the bootstrapping component (i.e. `AppComponent`):
 ```
-import { setTheme } from 'ngx-bootstrap/utils';
+import { setTheme } from '@iqualify/ngx-bootstrap/utils';
 
 @Component({...})
 export class AppComponent {

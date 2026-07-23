@@ -1,6 +1,6 @@
 // Copyright (c) 2017 Google, Inc.
 import { EventEmitter, Injectable } from '@angular/core';
-import { AvailableBsVersions } from 'ngx-bootstrap/utils';
+import { AvailableBsVersions } from '@iqualify/ngx-bootstrap/utils';
 
 @Injectable({providedIn: 'platform'})
 export class ThemeStorage {

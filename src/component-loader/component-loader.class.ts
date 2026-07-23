@@ -18,9 +18,9 @@ import {
   ViewContainerRef
 } from '@angular/core';
 
-import { PositioningOptions, PositioningService } from 'ngx-bootstrap/positioning';
+import { PositioningOptions, PositioningService } from '@iqualify/ngx-bootstrap/positioning';
 
-import { listenToTriggersV2, registerEscClick, registerOutsideClick } from 'ngx-bootstrap/utils';
+import { listenToTriggersV2, registerEscClick, registerOutsideClick } from '@iqualify/ngx-bootstrap/utils';
 import { Subscription } from 'rxjs';
 
 import { ContentRef } from './content-ref.class';

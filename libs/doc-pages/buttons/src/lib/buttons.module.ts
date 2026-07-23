@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { ButtonsModule } from '@iqualify/ngx-bootstrap/buttons';
 import { DocsModule } from '@ngx-bootstrap-doc/docs';
 import { ButtonsSectionComponent } from './buttons-section.component';
 import { DEMO_COMPONENTS } from './demos/index';

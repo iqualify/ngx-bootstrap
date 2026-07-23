@@ -1021,6 +1021,11 @@ export const ngdoc: any = {
         "description": "<p>sets use adaptive position</p>\n"
       },
       {
+        "name": "allowedPositions",
+        "type": "string[]",
+        "description": "<p>Set allowed positions of container.</p>\n"
+      },
+      {
         "name": "clearButtonLabel",
         "defaultValue": "Clear",
         "type": "string",
@@ -3266,6 +3271,11 @@ export const ngdoc: any = {
         "description": "<p>sets disable adaptive position</p>\n"
       },
       {
+        "name": "boundariesElement",
+        "type": "\"viewport\" | \"scrollParent\" | \"window\"",
+        "description": ""
+      },
+      {
         "name": "container",
         "type": "string",
         "description": "<p>A selector specifying the element the popover should be appended to.</p>\n"
@@ -3318,11 +3328,6 @@ export const ngdoc: any = {
         "defaultValue": "click",
         "type": "string",
         "description": "<p>Specifies events that should trigger. Supports a space separated list of\nevent names.</p>\n"
-      },
-      {
-        "name": "boundariesElement",
-        "type": "\"viewport\" | \"scrollParent\" | \"window\"",
-        "description": ""
       }
     ],
     "outputs": [

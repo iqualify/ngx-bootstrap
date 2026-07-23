@@ -1,5 +1,5 @@
 {
-  "name": "ngx-bootstrap/rating",
+  "name": "@iqualify/ngx-bootstrap/rating",
   "version": "9.0.0",
   "author": "Dmitriy Shekhovtsov <valorkin@gmail.com>",
   "license": "MIT"

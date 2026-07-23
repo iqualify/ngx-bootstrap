@@ -1,4 +1,4 @@
-import { isSameMonth, shiftDate } from 'ngx-bootstrap/chronos';
+import { isSameMonth, shiftDate } from '@iqualify/ngx-bootstrap/chronos';
 import {
   MonthsCalendarViewModel,
   CalendarCellViewModel

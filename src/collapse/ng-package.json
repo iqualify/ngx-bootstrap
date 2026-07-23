@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/ngx-bootstrap/collapse",
+  "dest": "../../dist/@iqualify/ngx-bootstrap/collapse",
   "lib": {
     "entryFile": "index.ts"
   }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Component } from '@angular/core';
-import { setTheme } from 'ngx-bootstrap/utils';
+import { setTheme } from '@iqualify/ngx-bootstrap/utils';
 
 import { StyleManager } from '../../theme/style-manager';
 import { ThemeStorage } from '../../theme/theme-storage';

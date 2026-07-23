@@ -1,5 +1,5 @@
 {
-  "name": "ngx-bootstrap/carousel",
+  "name": "@iqualify/ngx-bootstrap/carousel",
   "version": "9.0.0",
   "author": "Dmitriy Shekhovtsov <valorkin@gmail.com>",
   "license": "MIT"

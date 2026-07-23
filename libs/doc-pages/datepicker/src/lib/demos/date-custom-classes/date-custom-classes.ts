@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DatepickerDateCustomClasses } from 'ngx-bootstrap/datepicker';
+import { DatepickerDateCustomClasses } from '@iqualify/ngx-bootstrap/datepicker';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector

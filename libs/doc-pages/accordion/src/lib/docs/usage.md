@@ -1,6 +1,6 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { AccordionModule } from '@iqualify/ngx-bootstrap/accordion';
 
 @NgModule({
   imports: [

@@ -9,7 +9,7 @@ import {
   Optional
 } from '@angular/core';
 
-import { ComponentLoader, ComponentLoaderFactory } from 'ngx-bootstrap/component-loader';
+import { ComponentLoader, ComponentLoaderFactory } from '@iqualify/ngx-bootstrap/component-loader';
 import { ModalBackdropComponent } from './modal-backdrop.component';
 import { ModalContainerComponent } from './modal-container.component';
 import {

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { PagesModel } from 'ngx-bootstrap/pagination';
+import { PagesModel } from '@iqualify/ngx-bootstrap/pagination';
 
 type Roman = {
   [key: string]: number;

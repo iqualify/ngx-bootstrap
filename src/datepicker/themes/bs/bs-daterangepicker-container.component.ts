@@ -12,9 +12,9 @@ import {
 import { take } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 
-import { getFullYear, getMonth } from 'ngx-bootstrap/chronos';
-import { PositioningService } from 'ngx-bootstrap/positioning';
-import { TimepickerComponent } from 'ngx-bootstrap/timepicker';
+import { getFullYear, getMonth } from '@iqualify/ngx-bootstrap/chronos';
+import { PositioningService } from '@iqualify/ngx-bootstrap/positioning';
+import { TimepickerComponent } from '@iqualify/ngx-bootstrap/timepicker';
 
 import { BsDatepickerAbstractComponent } from '../../base/bs-datepicker-container';
 import { BsDatepickerConfig } from '../../bs-datepicker.config';

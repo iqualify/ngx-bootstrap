@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { TooltipModule } from '@iqualify/ngx-bootstrap/tooltip';
 
 import { DocsModule } from '@ngx-bootstrap-doc/docs';
 import { TooltipSectionComponent } from './tooltip-section.component';

@@ -1,4 +1,4 @@
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { TooltipModule } from '@iqualify/ngx-bootstrap/tooltip';
 
 @NgModule({
   imports: [TooltipModule.forRoot(),...]

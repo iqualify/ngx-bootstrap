@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/ngx-bootstrap/sortable",
+  "dest": "../../dist/@iqualify/ngx-bootstrap/sortable",
   "lib": {
     "entryFile": "index.ts"
   }

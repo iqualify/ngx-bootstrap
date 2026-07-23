@@ -1,5 +1,5 @@
 {
-  "name": "ngx-bootstrap/alert",
+  "name": "@iqualify/ngx-bootstrap/alert",
   "version": "9.0.0",
   "author": "Dmitriy Shekhovtsov <valorkin@gmail.com>",
   "license": "MIT"

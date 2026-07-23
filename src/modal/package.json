@@ -1,5 +1,5 @@
 {
-  "name": "ngx-bootstrap/modal",
+  "name": "@iqualify/ngx-bootstrap/modal",
   "version": "9.0.0",
   "author": "Dmitriy Shekhovtsov <valorkin@gmail.com>",
   "license": "MIT"

@@ -2,7 +2,7 @@ import { Component, Renderer2, ViewChild } from '@angular/core';
 import { ComponentFixture, fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { dispatchKeyboardEvent } from '@ngneat/spectator';
-import { registerEscClick } from 'ngx-bootstrap/utils';
+import { registerEscClick } from '@iqualify/ngx-bootstrap/utils';
 import { BsDatepickerDirective } from '../bs-datepicker.component';
 import { BsDatepickerConfig } from '../bs-datepicker.config';
 

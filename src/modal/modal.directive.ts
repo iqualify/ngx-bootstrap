@@ -7,12 +7,12 @@ import {
   OnDestroy, OnInit, Output, Renderer2, ViewContainerRef, Optional, Inject
 } from '@angular/core';
 
-import { document, window, isBs3, Utils } from 'ngx-bootstrap/utils';
+import { document, window, isBs3, Utils } from '@iqualify/ngx-bootstrap/utils';
 import { ModalBackdropComponent } from './modal-backdrop.component';
 import {
   CLASS_NAME, DISMISS_REASONS, modalConfigDefaults, ModalOptions, MODAL_CONFIG_DEFAULT_OVERRIDE
 } from './modal-options.class';
-import { ComponentLoader, ComponentLoaderFactory } from 'ngx-bootstrap/component-loader';
+import { ComponentLoader, ComponentLoaderFactory } from '@iqualify/ngx-bootstrap/component-loader';
 import { CloseInterceptorFn } from './models';
 
 const TRANSITION_DURATION = 300;

@@ -1,5 +1,5 @@
 // user and model input should handle parsing and validating input values
-import { getFirstDayOfMonth } from 'ngx-bootstrap/chronos';
+import { getFirstDayOfMonth } from '@iqualify/ngx-bootstrap/chronos';
 // should accept some options
 // todo: split out formatting
 import { DaysCalendarModel, MonthViewOptions } from '../models';

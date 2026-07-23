@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TimepickerConfig } from 'ngx-bootstrap/timepicker';
+import { TimepickerConfig } from '@iqualify/ngx-bootstrap/timepicker';
 
 export function getTimepickerConfig(): TimepickerConfig {
   return Object.assign(new TimepickerConfig(), {

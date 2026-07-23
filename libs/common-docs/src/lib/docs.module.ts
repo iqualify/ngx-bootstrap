@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
-import { TabsModule } from 'ngx-bootstrap/tabs';
+import { TabsModule } from '@iqualify/ngx-bootstrap/tabs';
 
 /* common */
 import { AppFooterComponent } from './common/app-footer/app-footer.component';

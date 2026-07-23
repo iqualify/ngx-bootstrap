@@ -3,11 +3,11 @@ import {
   Renderer2, TemplateRef, ViewContainerRef
 } from '@angular/core';
 import { PopoverConfig } from './popover.config';
-import { ComponentLoader, ComponentLoaderFactory } from 'ngx-bootstrap/component-loader';
+import { ComponentLoader, ComponentLoaderFactory } from '@iqualify/ngx-bootstrap/component-loader';
 import { PopoverContainerComponent } from './popover-container.component';
-import { PositioningService, AvailbleBSPositions } from 'ngx-bootstrap/positioning';
+import { PositioningService, AvailbleBSPositions } from '@iqualify/ngx-bootstrap/positioning';
 import { timer } from 'rxjs';
-import { parseTriggers, Trigger } from 'ngx-bootstrap/utils';
+import { parseTriggers, Trigger } from '@iqualify/ngx-bootstrap/utils';
 
 let id = 0;
 

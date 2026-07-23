@@ -1,5 +1,5 @@
 {
-  "name": "ngx-bootstrap/sortable",
+  "name": "@iqualify/ngx-bootstrap/sortable",
   "version": "9.0.0",
   "author": "Dmitriy Shekhovtsov <valorkin@gmail.com>",
   "license": "MIT"

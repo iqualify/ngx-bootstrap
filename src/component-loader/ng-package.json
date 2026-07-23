@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/ngx-bootstrap/component-loader",
+  "dest": "../../dist/@iqualify/ngx-bootstrap/component-loader",
   "lib": {
     "entryFile": "index.ts"
   }

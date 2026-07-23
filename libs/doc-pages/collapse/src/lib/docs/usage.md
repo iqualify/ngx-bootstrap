@@ -1,6 +1,6 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { CollapseModule } from '@iqualify/ngx-bootstrap/collapse';
 
 @NgModule({
   imports: [

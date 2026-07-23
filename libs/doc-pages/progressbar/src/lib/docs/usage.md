@@ -1,4 +1,4 @@
-import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
+import { ProgressbarModule } from '@iqualify/ngx-bootstrap/progressbar';
 
 @NgModule({
   imports: [ProgressbarModule.forRoot(),...]

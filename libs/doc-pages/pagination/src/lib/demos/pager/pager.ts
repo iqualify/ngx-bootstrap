@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { PageChangedEvent } from 'ngx-bootstrap/pagination';
+import { PageChangedEvent } from '@iqualify/ngx-bootstrap/pagination';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector

@@ -3,7 +3,7 @@ import {
   YearsCalendarViewModel,
   CalendarCellViewModel
 } from '../models';
-import { shiftDate, formatDate } from 'ngx-bootstrap/chronos';
+import { shiftDate, formatDate } from '@iqualify/ngx-bootstrap/chronos';
 import { createMatrix } from '../utils/matrix-utils';
 
 const height = 4;

@@ -1,5 +1,5 @@
 {
-  "name": "ngx-bootstrap/utils",
+  "name": "@iqualify/ngx-bootstrap/utils",
   "version": "9.0.0",
   "author": "Dmitriy Shekhovtsov <valorkin@gmail.com>",
   "license": "MIT"

@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/ngx-bootstrap/tooltip",
+  "dest": "../../dist/@iqualify/ngx-bootstrap/tooltip",
   "lib": {
     "entryFile": "index.ts"
   }

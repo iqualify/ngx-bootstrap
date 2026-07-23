@@ -4,8 +4,8 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 import { TooltipConfig } from './tooltip.config';
-import { getBsVer, IBsVersion } from 'ngx-bootstrap/utils';
-import { PlacementForBs5 } from 'ngx-bootstrap/positioning';
+import { getBsVer, IBsVersion } from '@iqualify/ngx-bootstrap/utils';
+import { PlacementForBs5 } from '@iqualify/ngx-bootstrap/positioning';
 
 @Component({
   selector: 'bs-tooltip-container',

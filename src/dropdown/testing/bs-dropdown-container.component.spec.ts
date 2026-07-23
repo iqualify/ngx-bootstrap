@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Subject } from 'rxjs';
 
 import { BsDropdownContainerComponent, BsDropdownModule, BsDropdownState } from '../index';
-import { window } from 'ngx-bootstrap/utils';
+import { window } from '@iqualify/ngx-bootstrap/utils';
 
 describe('BsDropdownContainerComponent tests', () => {
   let fixture: ComponentFixture<BsDropdownContainerComponent>;

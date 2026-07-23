@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlertComponent } from 'ngx-bootstrap/alert';
+import { AlertComponent } from '@iqualify/ngx-bootstrap/alert';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector

@@ -94,7 +94,7 @@ npm install ngx-bootstrap --save
 
 Add wanted package to NgModule imports:
 ```
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { TooltipModule } from '@iqualify/ngx-bootstrap/tooltip';
 
 @NgModule({
   ...
@@ -142,7 +142,7 @@ have a customized version of bootstrap. The consequence is that the process of d
 be failed, which can break the UI. In that case, we can still set the bootstrap version manually in the bootstrapping 
 component (i.e. `AppComponent`):
 ```
-import { setTheme } from 'ngx-bootstrap/utils';
+import { setTheme } from '@iqualify/ngx-bootstrap/utils';
 
 @Component({...})
 export class AppComponent {

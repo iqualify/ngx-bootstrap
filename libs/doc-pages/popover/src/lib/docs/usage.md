@@ -1,4 +1,4 @@
-import { PopoverModule } from 'ngx-bootstrap/popover';
+import { PopoverModule } from '@iqualify/ngx-bootstrap/popover';
 
 @NgModule({
   imports: [PopoverModule.forRoot(),...]

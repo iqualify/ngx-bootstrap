@@ -1,6 +1,6 @@
 import { bsDatepickerReducer } from '../reducer/bs-datepicker.reducer';
 import { BsDatepickerActions } from '../reducer/bs-datepicker.actions';
-import { Action } from 'ngx-bootstrap/mini-ngrx';
+import { Action } from '@iqualify/ngx-bootstrap/mini-ngrx';
 import { initialDatepickerState } from '../reducer/bs-datepicker.state';
 import { mockFlaggedMonths } from './flaggedMonthsMock';
 

@@ -11,11 +11,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ${moduleData.moduleName} } from 'ngx-bootstrap/${moduleData.moduleFolder}';
-${className === 'DemoModalWithPopupsComponent' ? `import { TooltipModule } from 'ngx-bootstrap/tooltip';
-import { PopoverModule } from 'ngx-bootstrap/popover';` : ''}
-${className === 'DemoDatepickerChangeLocaleComponent' ? `import { defineLocale } from 'ngx-bootstrap/chronos';
-import { deLocale, frLocale, plLocale } from 'ngx-bootstrap/locale';
+import { ${moduleData.moduleName} } from '@iqualify/ngx-bootstrap/${moduleData.moduleFolder}';
+${className === 'DemoModalWithPopupsComponent' ? `import { TooltipModule } from '@iqualify/ngx-bootstrap/tooltip';
+import { PopoverModule } from '@iqualify/ngx-bootstrap/popover';` : ''}
+${className === 'DemoDatepickerChangeLocaleComponent' ? `import { defineLocale } from '@iqualify/ngx-bootstrap/chronos';
+import { deLocale, frLocale, plLocale } from '@iqualify/ngx-bootstrap/locale';
  defineLocale('de', deLocale);
  defineLocale('fr', frLocale);
  defineLocale('pl', plLocale);` : ''}

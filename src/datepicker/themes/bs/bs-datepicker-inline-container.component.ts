@@ -6,7 +6,7 @@ import { BsDatepickerConfig } from '../../bs-datepicker.config';
 import { BsDatepickerEffects } from '../../reducer/bs-datepicker.effects';
 import { BsDatepickerStore } from '../../reducer/bs-datepicker.store';
 
-import { PositioningService } from 'ngx-bootstrap/positioning';
+import { PositioningService } from '@iqualify/ngx-bootstrap/positioning';
 import { datepickerAnimation } from '../../datepicker-animations';
 
 @Component({

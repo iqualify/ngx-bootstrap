@@ -1,5 +1,5 @@
 {
-  "name": "ngx-bootstrap-base",
+  "name": "@iqualify/ngx-bootstrap-base",
   "version": "6.2.0",
   "description": "Native Angular Bootstrap Components",
   "private": true,

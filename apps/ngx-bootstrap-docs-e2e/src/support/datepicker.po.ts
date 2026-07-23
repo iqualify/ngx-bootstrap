@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { BaseComponent } from './base.component';
-import * as globalLocales from 'ngx-bootstrap/locale';
+import * as globalLocales from '@iqualify/ngx-bootstrap/locale';
 import * as moment from 'moment';
 
 export class DatepickerPo extends BaseComponent {

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
+import { TypeaheadMatch } from '@iqualify/ngx-bootstrap/typeahead';
 import { mergeMap, delay } from 'rxjs/operators';
-import { TypeaheadConfig } from 'ngx-bootstrap/typeahead';
+import { TypeaheadConfig } from '@iqualify/ngx-bootstrap/typeahead';
 import { DataSourceType } from '../interfaces/typeahead.interfaces';
 
 export function getTypeaheadConfig(): TypeaheadConfig {

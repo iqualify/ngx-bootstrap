@@ -14,7 +14,7 @@ import {
   getTemplateFileName,
   getCSSCodeDatepickerCustomClass
 } from './stackblitz/helpers';
-import { Utils } from 'ngx-bootstrap/utils';
+import { Utils } from '@iqualify/ngx-bootstrap/utils';
 import { Subscription } from 'rxjs';
 import { AvailableTabsNames } from '../../models/common.models';
 

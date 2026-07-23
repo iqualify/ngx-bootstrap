@@ -3,7 +3,7 @@ import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testin
 
 import '../../../scripts/jest/toHaveCssClass';
 import { CarouselModule } from '../index';
-import { getBsVer, IBsVersion } from 'ngx-bootstrap/utils';
+import { getBsVer, IBsVersion } from '@iqualify/ngx-bootstrap/utils';
 
 @Component({ selector: 'carousel-test', template: '' })
 class TestCarouselComponent {

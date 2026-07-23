@@ -1,4 +1,4 @@
-import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { CarouselModule } from '@iqualify/ngx-bootstrap/carousel';
 
 @NgModule({
   imports: [CarouselModule.forRoot(),...]

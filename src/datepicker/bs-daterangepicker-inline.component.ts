@@ -3,7 +3,7 @@ import {
   OnDestroy, OnInit, Output, Renderer2, SimpleChanges, ViewContainerRef
 } from '@angular/core';
 
-import { ComponentLoader, ComponentLoaderFactory } from 'ngx-bootstrap/component-loader';
+import { ComponentLoader, ComponentLoaderFactory } from '@iqualify/ngx-bootstrap/component-loader';
 
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';

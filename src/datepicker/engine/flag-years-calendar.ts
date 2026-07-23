@@ -1,4 +1,4 @@
-import { isSameYear, shiftDate } from 'ngx-bootstrap/chronos';
+import { isSameYear, shiftDate } from '@iqualify/ngx-bootstrap/chronos';
 import { YearsCalendarViewModel, CalendarCellViewModel } from '../models';
 import { isDisabledDate, isEnabledDate, isYearDisabled } from '../utils/bs-calendar-utils';
 
