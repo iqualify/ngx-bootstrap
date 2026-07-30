@@ -67,7 +67,7 @@
       "style": "scss"
     }
   },
-  "defaultProject": "ngx-bootstrap-docs",
+  "defaultProject": "@iqualify/ngx-bootstrap",
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "cli": {
     "defaultCollection": "@nrwl/angular"
