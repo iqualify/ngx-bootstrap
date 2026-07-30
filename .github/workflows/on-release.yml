@@ -17,7 +17,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      - uses: actions/cache@v5
+        id: cache
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-lock.json') }}
       - run: npm ci
+        if: steps.cache.outputs.cache-hit != 'true'
 
   # build ngx-bootstrap
   build:
@@ -25,6 +31,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      - uses: actions/cache@v5
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-lock.json') }}
+      - uses: actions/cache@v5
+        with:
+          path: dist
+          key: dist-${{ github.run_id }}
       - run: |
           npx nx build @iqualify/ngx-bootstrap --runner cloud --configuration production
           npx ng build --runner cloud --configuration production
@@ -35,6 +49,14 @@ jobs:
     needs: build
     steps:
       - uses: actions/checkout@v7
-      - run: npm publish dist/ --dry-run=true
+      - uses: actions/cache@v5
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-lock.json') }}
+      - uses: actions/cache@v5
+        with:
+          path: dist
+          key: dist-${{ github.run_id }}
+      - run: npm publish dist/@iqualify/ngx-bootstrap --dry-run=true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

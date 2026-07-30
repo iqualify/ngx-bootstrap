@@ -214,8 +214,7 @@
   },
   "sideEffects": false,
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
-    "tag": "next"
+    "registry": "https://npm.pkg.github.com"
   },
   "repository": {
     "type": "git",
