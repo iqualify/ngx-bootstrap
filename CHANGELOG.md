@@ -1,3 +1,7 @@
+## [9.0.2](https://github.com/iqualify/ngx-bootstrap/compare/v9.0.1...v9.0.2) (2026-08-05)
+
+
+
 ## [9.0.1](https://github.com/iqualify/ngx-bootstrap/compare/v0.0.3...v9.0.1) (2026-08-05)
 
 
