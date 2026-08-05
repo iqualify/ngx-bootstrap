@@ -1,3 +1,41 @@
+# iQualify-specific details
+
+## Overview
+
+This is the iQualify fork of ngx-bootstrap.
+
+This fork is minimally edited with the following changes:
+- Support for `Bootstrap v3`, which was removed in `ngx-bootstrap v10`
+- Scoped to the `iQualify` scope, e.g. `@iqualify/ngx-bootstrap`
+- Reduced third-party complexity/improve security in the release process
+
+You can see all the changes at https://github.com/iqualify/ngx-bootstrap/compare/v9.0.0...iqualify:ngx-bootstrap:v9-bootstrap3?expand=1
+
+## Publishing
+
+Publishing happens on GitHub Actions. All you need to do is run `npm version VERSION` where `VERSION` is the version number you want, then push that. GitHub will do the rest.
+
+Your version number can be anything. I suggest just bumping the official one for simplicity, so if you are syncing with 10.3.0, your one would be 10.3.1
+
+Then a consumer (like our Nx repo) can just run `npm i @iqualify/ngx-bootstrap@VERSION` to use it.
+
+## Syncing with versions
+
+You're likely here because you are updating Angular to a new major version in our Nx repository, so you need to also make a new version of ngx-bootstrap.
+
+To do that:
+
+1. Switch to the branch that is currently used. At the time of writing this doc, that is `v9-bootstrap3`
+2. Create a new branch following the same convention. So if you want ngx-bootstrap v10, your new branch should be `v10-bootstrap3`.
+3. Get the relevant commits from the official ngx-bootstrap `development` branch (that's the name of their `main` branch).
+    You can't just pull from that branch, because it's too far ahead of your branch, so I suggest you either:
+    - `Cherrypick` the commits if there aren't too many. This option is my go-to because it's easier to resolve conflicts per-commit than per-release
+    - Create a version branch like `v10` that is equal to the tag you want, push it to GitHub so a record is kept, then pull into your new branch from that one. It could save time vs. cherrypicking and gets you to the same result.
+
+# ngx-bootstrap details
+
+Below are the unedited contents of the official readme:
+
 <a href="http://valor-software.com/ngx-bootstrap/#/">
 <div align="center">
 <img class="mx-auto center-block d-block" src="https://valor-software.com/ngx-bootstrap/assets/images/logos/ngx-bootstrap-logo.svg" alt="ngx-bootstrap" width="200" height="200">
