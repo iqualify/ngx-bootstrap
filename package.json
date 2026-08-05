@@ -1,6 +1,6 @@
 {
   "name": "@iqualify/ngx-bootstrap",
-  "version": "9.0.0",
+  "version": "0.0.3",
   "license": "MIT",
   "author": "Dmitriy Shekhovtsov <valorkin@gmail.com>",
   "schematics": "./schematics/src/collection.json",
