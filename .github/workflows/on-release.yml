@@ -57,6 +57,6 @@ jobs:
         with:
           path: dist
           key: dist-${{ github.run_id }}
-      - run: npm publish dist/@iqualify/ngx-bootstrap --dry-run=true
+      - run: npm publish dist/@iqualify/ngx-bootstrap
         env:
           NPM_REGISTRY_TOKEN: ${{ secrets.GITHUB_TOKEN }}
