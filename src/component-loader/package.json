@@ -1,6 +1,6 @@
 {
   "name": "@iqualify/ngx-bootstrap/component-loader",
-  "version": "10.3.1",
+  "version": "10.3.2",
   "author": "Dmitriy Shekhovtsov <valorkin@gmail.com>",
   "license": "MIT"
 }
