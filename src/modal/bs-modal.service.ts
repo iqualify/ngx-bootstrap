@@ -20,7 +20,7 @@ import {
   MODAL_CONFIG_DEFAULT_OVERRIDE
 } from './modal-options.class';
 import { BsModalRef } from './bs-modal-ref.service';
-import { document } from 'ngx-bootstrap/utils';
+import { document } from '@iqualify/ngx-bootstrap/utils';
 
 let currentId = 1;
 
