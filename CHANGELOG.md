@@ -1,3 +1,27 @@
+## [10.3.1](https://github.com/iqualify/ngx-bootstrap/compare/v9.0.2...v10.3.1) (2026-08-26)
+
+
+### Bug Fixes
+
+* **datepicker:** fixed disabled state on datepickers ([#6540](https://github.com/iqualify/ngx-bootstrap/issues/6540)) ([ae6d0a1](https://github.com/iqualify/ngx-bootstrap/commit/ae6d0a1dc92344515294d27a2e0f0c4bbed523b2))
+* **docs:** fixed logos on users docs page ([#6532](https://github.com/iqualify/ngx-bootstrap/issues/6532)) ([571cb8a](https://github.com/iqualify/ngx-bootstrap/commit/571cb8a626217fafe7ccdc9204dc638e47572dd4))
+* **docs:** hide themes route ([#6541](https://github.com/iqualify/ngx-bootstrap/issues/6541)) ([4ed2539](https://github.com/iqualify/ngx-bootstrap/commit/4ed2539b97ec8bd0ce74415ab458200a8595ec54))
+* hide event registration leak ([#6521](https://github.com/iqualify/ngx-bootstrap/issues/6521)) ([33f37b2](https://github.com/iqualify/ngx-bootstrap/commit/33f37b238eaf78749bd48541f23ba88f56edd02c))
+* **modal:** hide works even if show hasn't finished ([#6518](https://github.com/iqualify/ngx-bootstrap/issues/6518)) ([7becb2d](https://github.com/iqualify/ngx-bootstrap/commit/7becb2d3067e9521f48e2ee0f47e4850810ab61c))
+* **popover:** fixed popover using after chrome updates ([#6548](https://github.com/iqualify/ngx-bootstrap/issues/6548)) ([73adfeb](https://github.com/iqualify/ngx-bootstrap/commit/73adfebdd032a374330a35864dd2f0ae42c729a7))
+* **schematics:** fixed schematics for version 9.0.0 ([#6508](https://github.com/iqualify/ngx-bootstrap/issues/6508)) ([db07538](https://github.com/iqualify/ngx-bootstrap/commit/db07538bb364dba4cf75ca28b4b53f36caeb3999))
+
+
+### Features
+
+* **button:** allow any type for the value binding of the btnRadio directive ([#6446](https://github.com/iqualify/ngx-bootstrap/issues/6446)) ([5204938](https://github.com/iqualify/ngx-bootstrap/commit/5204938f1fb5e7668bc30580d01cba74f72c5314))
+* **chore:** added information regarding new versions ([#6533](https://github.com/iqualify/ngx-bootstrap/issues/6533)) ([f934837](https://github.com/iqualify/ngx-bootstrap/commit/f934837ac0b3ccbf0ff1298ec260a32345ece3e4))
+* **datepicker:** added new config property keepDatesOutOfRules ([#6554](https://github.com/iqualify/ngx-bootstrap/issues/6554)) ([1b16911](https://github.com/iqualify/ngx-bootstrap/commit/1b16911ae26aded9fea8978523ae8dc8cb964ed6))
+* **doc:** added information regarding v10.0.0 ([#6513](https://github.com/iqualify/ngx-bootstrap/issues/6513)) ([7428a33](https://github.com/iqualify/ngx-bootstrap/commit/7428a33584fa69827fc7549fba485f2e0d8018ad))
+* **doc:** doc updates for version 9.0.0 ([#6506](https://github.com/iqualify/ngx-bootstrap/issues/6506)) ([f0a2205](https://github.com/iqualify/ngx-bootstrap/commit/f0a2205850dd044a0ea65c63bd409730063d8409))
+
+
+
 # [10.3.0](https://github.com/valor-software/ngx-bootstrap/compare/v9.0.0...v10.3.0) (2023-02-17)
 
 
