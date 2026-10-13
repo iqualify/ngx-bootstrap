@@ -59,6 +59,6 @@
   },
   "tags": [],
   "implicitDependencies": [
-    "ngx-bootstrap-docs"
+    "@iqualify/ngx-bootstrap"
   ]
 }

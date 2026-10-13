@@ -102,6 +102,6 @@
     }
   },
   "implicitDependencies": [
-    "ngx-bootstrap"
+    "@iqualify/ngx-bootstrap"
   ]
 }
