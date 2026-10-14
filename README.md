@@ -13,9 +13,19 @@ You can see all the changes at https://github.com/iqualify/ngx-bootstrap/compare
 
 ## Publishing
 
-Publishing happens on GitHub Actions. All you need to do is run `npm version VERSION` where `VERSION` is the version number you want, then push that. GitHub will do the rest.
+Publishing happens on GitHub Actions.
 
-Your version number can be anything. I suggest just bumping the official one for simplicity, so if you are syncing with 10.3.0, your one would be 10.3.1
+To get that going:
+
+1. Change the version in `package.json`
+
+    Your version number can be anything. I suggest just bumping the official one for simplicity, so if you are syncing with 10.3.0, your one would be 10.3.1
+2. Run `npm run version` which will populate all the components with that same version
+3. Commit the changes
+4. Create a tag that starts with `v` and the version, e.g. `v11.0.3`
+5. Push the commit and tag
+
+GitHub will do the rest.
 
 Then a consumer (like our Nx repo) can just run `npm i @iqualify/ngx-bootstrap@VERSION` to use it.
 
