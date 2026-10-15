@@ -11,15 +11,7 @@ This fork is minimally edited with the following changes:
 
 You can see all the changes at https://github.com/iqualify/ngx-bootstrap/compare/v9.0.0...iqualify:ngx-bootstrap:v9-bootstrap3?expand=1
 
-## Publishing
-
-Publishing happens on GitHub Actions. All you need to do is run `npm version VERSION` where `VERSION` is the version number you want, then push that. GitHub will do the rest.
-
-Your version number can be anything. I suggest just bumping the official one for simplicity, so if you are syncing with 10.3.0, your one would be 10.3.1
-
-Then a consumer (like our Nx repo) can just run `npm i @iqualify/ngx-bootstrap@VERSION` to use it.
-
-## Syncing with versions
+## Syncing our fork with newer official versions
 
 You're likely here because you are updating Angular to a new major version in our Nx repository, so you need to also make a new version of ngx-bootstrap.
 
@@ -31,6 +23,24 @@ To do that:
     You can't just pull from that branch, because it's too far ahead of your branch, so I suggest you either:
     - `Cherrypick` the commits if there aren't too many. This option is my go-to because it's easier to resolve conflicts per-commit than per-release
     - Create a version branch like `v10` that is equal to the tag you want, push it to GitHub so a record is kept, then pull into your new branch from that one. It could save time vs. cherrypicking and gets you to the same result.
+
+## Publishing
+
+Publishing happens on GitHub Actions.
+
+To get that going:
+
+1. Change the version in `package.json`
+
+    Your version number can be anything. I suggest just bumping the official one for simplicity, so if you are syncing with 10.3.0, your one would be 10.3.1
+2. Run `npm run version` which will populate all the components with that same version
+3. Commit and push the changes
+4. Create a tag that starts with `v` and the version, e.g. `v11.0.3`
+5. Push the tag
+
+GitHub will do the rest. You can see how that's happening on the Actions tab https://github.com/iqualify/ngx-bootstrap/actions
+
+Then a consumer (like our Nx repo) can just run `npm i @iqualify/ngx-bootstrap@VERSION` to use it.
 
 # ngx-bootstrap details
 
@@ -211,7 +221,8 @@ Here is the version compatibility list:
 
 | ngx-bootstrap | Angular         | Bootstrap CSS  |
 |---------------|-----------------|----------------|
-| 10.x.x        | 15.x.x | 5.x.x or 4.x.x |
+| 11.x.x        | 16.x.x          | 5.x.x or 4.x.x |
+| 10.x.x        | 15.x.x          | 5.x.x or 4.x.x |
 | 9.0.0         | 14.x.x          | 5.x.x or 4.x.x or 3.x.x |
 | 8.0.0         | 12.x.x - 13.x.x | 5.x.x or 4.x.x or 3.x.x |
 | 7.1.0         | 11.x.x - 12.x.x | 5.x.x or 4.x.x or 3.x.x |
@@ -244,10 +255,7 @@ Please read our [contribution guidelines](https://github.com/valor-software/ngx-
 
 ### Credits
 Crossbrowser testing sponsored by [Saucelabs](https://saucelabs.com/)
-[<img src="https://avatars2.githubusercontent.com/u/88837?s=200&v=4" alt="Saucelabs" width="31" height="31">](https://saucelabs.com/)
-
-End-to-end testing sponsored by [Cypress](https://www.cypress.io/)
-[<img src="https://raw.githubusercontent.com/cypress-io/cypress-icons/master/src/favicon/favicon.ico" alt="Cypress" width="31" height="31">](https://www.cypress.io/)
+[<img src="https://avatars2.githubusercontent.com/u/88837?s=200&v=4" alt="Saucelabs" width="31" height="31" align="middle">](https://saucelabs.com/)
 
 ### License
 
